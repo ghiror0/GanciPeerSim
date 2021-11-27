@@ -3,7 +3,7 @@ simulation.cycles 100
 
 control.shf Shuffle  #cambia l'ordine con cui i nodi vengono considerati ad ogni ciclo della simulazione
 
-network.size 50
+network.size 30
  
 protocol.lnk IdleProtocol
 

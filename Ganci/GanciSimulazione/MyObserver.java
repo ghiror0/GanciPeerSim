@@ -19,8 +19,8 @@ public class MyObserver implements Control {
 	static private final String CYCLES = "simulation.cycles";
 	static private final String SEED = "random.seed";
 	static private final String NETSIZE = "network.size";
-	static private final String CACHE = "MyProtocol.cache";
-	static private final String LIVEOPT = "MyProtocol.liveOpt";
+	static private final String CACHE = "protocol.MyProtocol.cache";
+	static private final String LIVEOPT = "protocol.MyProtocol.liveOpt";
 	static private final String NUMQUERY = "init.2.queryNum";
 	static private final String DIR = "results/QueryResult";
 	static private final String CONNECT = "init.1.connectivity";
@@ -58,8 +58,8 @@ public class MyObserver implements Control {
 		seed = Configuration.getLong(SEED);
 		lastCycle = Configuration.getInt(CYCLES);
 		netSize = Configuration.getLong(NETSIZE);
-		cache = Configuration.getBoolean(CACHE, true);
-		liveOpt = Configuration.getBoolean(LIVEOPT, true);
+		cache = Configuration.getBoolean(CACHE);
+		liveOpt = Configuration.getBoolean(LIVEOPT);
 		numQuery =  Configuration.getInt(NUMQUERY);
 		connect = Configuration.getDouble(CONNECT);
 		cacheChar = cache ? 'C' : 'N';

@@ -1,0 +1,11 @@
+-Eseguire il file 'startSimulation'
+	-->farà partire la simulazione con il file di configurazione 'config' all'interno della cartella 'GanciSimulazione/config'
+	
+	
+	
+	
+	
+	
+	
+	
+	

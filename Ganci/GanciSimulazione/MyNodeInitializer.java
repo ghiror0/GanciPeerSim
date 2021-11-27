@@ -41,7 +41,7 @@ public class MyNodeInitializer implements Control {
 
 		initializeQuery();
 		
-		if(new TestClass().start(Network.get(0),pid)) return true;  //TODO rimuovere 
+		//if(new TestClass().start(Network.get(0),pid)) return true;  //TODO rimuovere 
 		
 		return false;
 	}

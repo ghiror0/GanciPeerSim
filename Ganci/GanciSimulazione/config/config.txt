@@ -1,5 +1,5 @@
-random.seed 3455643466
-simulation.cycles 100
+random.seed 345564
+simulation.cycles 20
 
 control.shf Shuffle  #cambia l'ordine con cui i nodi vengono considerati ad ogni ciclo della simulazione
 
@@ -15,13 +15,13 @@ init.0.protocol NetworkProtocol
 init.1 MyWireTopology
 init.1.protocol lnk
 init.1.coord_protocol NetworkProtocol
-init.1.connectivity 0.1
+init.1.connectivity 0.05
 
 protocol.MyProtocol MyProtocol
 protocol.MyProtocol.linkable lnk
 protocol.MyProtocol.verbose false
 protocol.MyProtocol.cache true
-protocol.MyProtocol.liveOpt false		#Presenta ancora problemi, mantenere 'false'
+protocol.MyProtocol.liveOpt true
 
 #init.rnd WireKOut
 #init.rnd.protocol lnk
@@ -30,7 +30,7 @@ protocol.MyProtocol.liveOpt false		#Presenta ancora problemi, mantenere 'false'
 
 init.2 MyNodeInitializer
 init.2.protocol MyProtocol
-init.2.queryNum 1
+init.2.queryNum 3
 
 control.avgo MyObserver
 control.avgo.protocol MyProtocol

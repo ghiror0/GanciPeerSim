@@ -22,7 +22,7 @@ public class Message {
 		senderId = id;
 		queryInput = input;
 		queryOutput = output;
-		paths = new ArrayList<PathInfo>();
+		paths = new ArrayList<>();
 		PathInfo startingPath = new PathInfo();
 		startingPath.addStartParameter(input);
 		addPath(startingPath);
@@ -109,15 +109,11 @@ public class Message {
 		for(int i = 1; i < paths.size();i++) { //per ogni path presente
 			temp = paths.get(i).getTotalExecTime();
 			
-			if(temp< actualBest) { //Se il tempo di esecuzione è minore del minore attuale
-				best = 1;
-				actualBest = temp;
-				
-			}else if(temp == actualBest) { //Se il tempo di esecuzione è uguale al minore attuale
-				if(paths.get(i).idSize()<paths.get(best).idSize()) { //Se il nuovo path contiene meno nodi, diventa il nuovo minimo
-					best = 1;
-					actualBest = temp;
-				}
+			if(temp< actualBest || (temp == actualBest && paths.get(i).idSize()<paths.get(best).idSize())) { 	//Se il tempo di esecuzione è minore del minore attuale
+																												//Oppure se i tempi sono uguali ma la lunghezza è minore
+																												//Il path diventa il nuovo best
+				best = i;
+				actualBest = temp;			
 			}
 		}
 		return best;
@@ -148,7 +144,7 @@ public class Message {
 		newMex.selectedPath = selectedPath;
 
 		
-		newMex.paths = new ArrayList<PathInfo>();
+		newMex.paths = new ArrayList<>();
 		
 		
 		for (PathInfo path : paths) {
@@ -165,7 +161,7 @@ public class Message {
 	//TESTED
 	//Rimuove i path che non rispondono alla query 
 	public void clearUnused() {
-		ArrayList<PathInfo> actualPaths = new ArrayList<PathInfo>();
+		ArrayList<PathInfo> actualPaths = new ArrayList<>();
 		actualPaths.addAll(paths);
 		for (PathInfo path : actualPaths) {
 			if (!path.getLastOutput().equals(queryOutput)) {

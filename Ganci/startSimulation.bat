@@ -1,6 +1,6 @@
 @ECHO OFF
-
 make
+
 
 ::Possibilità di far scegliere quale file di configurazione, all'interno della cartella config, far eseguire
 ::set /p config_file="Enter config file name:\n"

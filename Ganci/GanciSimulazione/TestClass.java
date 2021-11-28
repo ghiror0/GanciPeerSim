@@ -9,23 +9,24 @@ public class TestClass {
 	public PathInfo path1() {
 		PathInfo path = new PathInfo();
 		path.addStartParameter("a");
-		path.addEndNode(0, "b",1);
-		path.addEndNode(1, "c",2);
-		path.addEndNode(2, "d",3);
-		path.addEndNode(3, "e",4);
-		path.addEndNode(4, "f",5);
+		path.addEndNode(0, "b",0);
+		path.addEndNode(1, "c",1);
+		path.addEndNode(2, "d",2);
+		path.addEndNode(3, "v",3);
+		path.addEndNode(4, "f",4);
+		path.addEndNode(5, "g",5);
 		return path;
 	}
 	
 
 	public PathInfo path2() {
 		PathInfo path = new PathInfo();
-		path.addStartParameter("g");
-		path.addEndNode(5, "h",1);
-		path.addEndNode(6, "i",1);
-		path.addEndNode(7, "l",1);
-		path.addEndNode(8, "m",1);
-		path.addEndNode(9, "n",1);
+		path.addStartParameter("h");
+		path.addEndNode(5, "i",6);
+		path.addEndNode(6, "l",7);
+		path.addEndNode(7, "b",8);
+		path.addEndNode(8, "n",9);
+		path.addEndNode(9, "o",10);
 		return path;
 	}
 	
@@ -37,62 +38,29 @@ public class TestClass {
 		
 		MyProtocol pr =(MyProtocol) mainPr.clone();
 		pr.setId(117);
-		pr.setInput("a");
-		pr.setOutput("f");
-		pr.setExecTime(2);
+		pr.setInput("f");
+		pr.setOutput("z");
+		pr.setExecTime(30);
+	
 		
-		Message mex = new Message(3,"s","e");
+		System.out.println("/////////////////////////////////PRIMO PASSAGGIOOOOOO////////////////////////////////");
+		
+		
+		Message mex = new Message(3,"s","v");
 		
 		PathInfo path = path1();
-		path.printPath();
 		PathInfo path2 = path2();
 		mex.addPath(path);
 		mex.addPath(path2);
+		path.printPath();
+		path2.printPath();
 		
-		path.getTrunk(path.getParamIndex("d"), path.getParamIndex("f")).printPath();
-		path.getTrunk(2, 4).printPath();
-		/*
-		int outputIndex = cPath.getParamIndex("f");
-		if (outputIndex <= 0) {
-			return true;
-		}
-
-	
-		for (int i = outputIndex; i >= 0; i--) { 
-												
-			int inputIndex = path.getParamIndex(cPath.getParamByIndex(i));
-			if (inputIndex >= 0) { 
-									
-				PathInfo newPath = path.getTrunk(0, inputIndex);
-				newPath.addPath(cPath.getTrunk(i, outputIndex)); // era outputIndex + 1
-
-				newPath.printPath();
-				break;
-				
-			}
-		}
-		*/
+		pr.cachePath.add(path);
 		
+		//pr.addMessage(mex);
 		//pr.analyzeMex(mex);
-		
-		//showMessagePath(mex);
-		/*
-		System.out.println("/////////////////////SECONDO ANALIZY///////////////////");
-		pr.setInput("l");
-		pr.setOutput("d");
-		
-	    pr.analyzeMex(mex);
-		
-		showMessagePath(mex);
-		
-		
-		pr.setInput("g");
-		
-		pr.analyzeMex(mex);
-			
-		showMessagePath(mex);
-			
-*/
+		//pr.useCache(mex);
+		//pr.checkCachePath(path2, "v").printPath();
 		
 		System.out.println("\n\n/////////////////////FINE CLASSE TEST///////////////////");
 		return true;
@@ -103,6 +71,7 @@ public class TestClass {
 		pr.setId(117);
 		pr.setInput("f");
 		pr.setOutput("z");
+		pr.setExecTime(30);
 	
 		
 		System.out.println("/////////////////////////////////PRIMO PASSAGGIOOOOOO////////////////////////////////");
@@ -117,9 +86,10 @@ public class TestClass {
 		
 		
 		
-		pr.addMessage(mex);
-		pr.analyzeMex(mex);
-		pr.useCache(mex);
+		//pr.addMessage(mex);
+		//pr.analyzeMex(mex);
+		//pr.useCache(mex);
+		//pr.checkCachePath(path2, "v");
 		
 	
 		
@@ -160,6 +130,18 @@ public class TestClass {
 		showCachePath(pr);
 	}
 	
+	public void testTrunk() {
+		Message mex = new Message(3,"s","e");
+		
+		PathInfo path = path1();
+		path.printPath();
+		PathInfo path2 = path2();
+		mex.addPath(path);
+		mex.addPath(path2);
+		
+		path.getTrunk(path.getParamIndex("d"), path.getParamIndex("f")).printPath();
+		path.getTrunk(2, 4).printPath();
+	}
 
 	
 	public void showCachePath(MyProtocol prot) {

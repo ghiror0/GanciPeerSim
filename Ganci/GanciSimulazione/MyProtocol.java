@@ -1,7 +1,8 @@
 
-
 import peersim.core.*;
 import java.util.ArrayList;
+import java.util.List;
+
 import peersim.cdsim.CDProtocol;
 import peersim.config.Configuration;
 import peersim.config.FastConfig;
@@ -14,7 +15,7 @@ public class MyProtocol implements CDProtocol {
 	private static final String VERBOSE = "verbose";
 	private static final String CACHE = "cache";
 	private static final String LIVEOPT = "liveOpt";
-	
+
 	private static boolean verbose;
 	private static boolean cache;
 	private static boolean liveOptimization;
@@ -24,23 +25,20 @@ public class MyProtocol implements CDProtocol {
 	// ------------------------------------------------------------------------
 	private static int pid;
 
-
 	// Attributi del nodo
 	private int id;
 	private String input;
 	private String output;
 	private int executionTime;
-	static public long startTime;
+	public static long startTime;
 	boolean find = false;
 
-	static long sendMessage = 0;  //TODO un valore per ogni query
+	static long sendMessage = 0; // TODO un valore per ogni query
 
-	public ArrayList<Message> messagesBuffer;
-	public ArrayList<Message> concludedMessage;
-	public ArrayList<Long> responseTime;
-	public ArrayList<PathInfo> cachePath;
-
-
+	public List<Message> messagesBuffer;
+	public List<Message> concludedMessage;
+	public List<Long> responseTime;
+	public List<PathInfo> cachePath;
 
 	// ------------------------------------------------------------------------
 	// Initialization
@@ -48,11 +46,11 @@ public class MyProtocol implements CDProtocol {
 	public MyProtocol(String prefix) {
 		super();
 		pid = Configuration.getPid(prefix);
-		
+
 		verbose = Configuration.getBoolean(prefix + "." + VERBOSE, false);
-		cache = Configuration.getBoolean(prefix + "." + CACHE, true);
-		liveOptimization = Configuration.getBoolean(prefix + "." + LIVEOPT, true);
-		
+		cache = Configuration.getBoolean(prefix + "." + CACHE);
+		liveOptimization = Configuration.getBoolean(prefix + "." + LIVEOPT);
+
 		startTime = System.currentTimeMillis();
 	}
 
@@ -60,10 +58,10 @@ public class MyProtocol implements CDProtocol {
 		MyProtocol pr = null;
 		try {
 			pr = (MyProtocol) super.clone();
-			pr.messagesBuffer = new ArrayList<Message>();
-			pr.cachePath = new ArrayList<PathInfo>();
-			pr.concludedMessage = new ArrayList<Message>();
-			pr. responseTime = new ArrayList<Long>();
+			pr.messagesBuffer = new ArrayList<>();
+			pr.cachePath = new ArrayList<>();
+			pr.concludedMessage = new ArrayList<>();
+			pr.responseTime = new ArrayList<>();
 		} catch (CloneNotSupportedException e) {
 		} // never happens
 		return pr;
@@ -113,69 +111,72 @@ public class MyProtocol implements CDProtocol {
 			printMessages();
 		}
 
-		for (Message mex : messagesBuffer) { 			//Per ogni messaggio ricevuto
-			
-			if(mex.getFind()) {							//Se è un messaggio di risposta	
+		for (Message mex : messagesBuffer) { // Per ogni messaggio ricevuto
+
+			if (mex.getFind()) { // Se è un messaggio di risposta
 				concludedMessageAction(mex);
 				continue;
 			}
 
-			analyzeMex(mex);							//Se è una messaggio di richiesta
+			analyzeMex(mex); // Se è una messaggio di richiesta
 
-			if (cache) {								//se è abilitato meccanismo di cache
+			if (cache) { // se è abilitato meccanismo di cache
 				useCache(mex);
-				
+
 			}
 
-			sendAction(node, protocolID, mex);			//Invio del messaggio: inoltro richiesta o invio risposta
-		   }
-		
+			sendAction(node, protocolID, mex); // Invio del messaggio: inoltro richiesta o invio risposta
+		}
 
 		if (verbose) {
 			System.out.println("Messaggi dopo analisi:");
 			printMessages();
 		}
-		
-		clearMessages();								//Elimina i messaggi dal buffer
-		
-		//checkResponse();
+
+		clearMessages(); // Elimina i messaggi dal buffer
+
+		// checkResponse();
 
 	}
 
 	//////////////////////////////////////////////////////// MESSAGE//////////////////////////////////////////////////////////////////
-	//TESTED
+	// TESTED
 	public void analyzeMex(Message mex) {
 
 		String lastOutput;
 		int inputIndex;
 		int outputIndex;
 
-		for (int i=0; i< mex.paths.size();i++) { 
+		for (int i = 0; i < mex.paths.size(); i++) {
 
 			PathInfo path = mex.paths.get(i);
-			
-			lastOutput = path.getLastOutput();			//Prendo l'ultimo output del path
-			inputIndex = path.getParamIndex(input); 	//Prendo l'indice del path del parametro di input, se assente -1
-			outputIndex = path.getParamIndex(output);  	//Prendo l'indice del path del parametro di output, se assente -1
 
-			if (inputIndex >= 0) { 			// Posso utilizzare il servizio --> l'input è presente nel path
+			lastOutput = path.getLastOutput(); // Prendo l'ultimo output del path
+			inputIndex = path.getParamIndex(input); // Prendo l'indice del path del parametro di input, se assente -1
+			outputIndex = path.getParamIndex(output); // Prendo l'indice del path del parametro di output, se assente -1
 
-				if (outputIndex >= 0) { 	// Output già presente
-					
-					if(inputIndex < outputIndex && liveOptimization) { 		//se l'input è presente nel path prima dell'output, allora posso ottimizzare
-						optimizePath(path, inputIndex, outputIndex-1);		// il -1 serve perche i metodi considerano l'indice dell'id non del parametro		
+			if (inputIndex >= 0) { // Posso utilizzare il servizio --> l'input è presente nel path
+
+				if (outputIndex >= 0) { // Output già presente
+
+					if (inputIndex < outputIndex && liveOptimization) { // se l'input è presente nel path prima
+																		// dell'output, allora posso ottimizzare
+						optimizePath(path, inputIndex, outputIndex); // il -1 serve perche i metodi considerano l'indice
+																		// dell'id non del parametro
 					}
 
-				} else { 					// Output non presente
+				} else { // Output non presente
 
-					if (input.equals(lastOutput)) {							//Se l'input del servizio è l'ultimo degli output del path, posso inserire le info del nodo in coda
+					if (input.equals(lastOutput)) { // Se l'input del servizio è l'ultimo degli output del path, posso
+													// inserire le info del nodo in coda
 						path.addEndNode(id, output, executionTime);
 
-					} else {												//Se l'input è presente nel mezzo del path, creo un secondo percorso e lo aggiungo al messaggio
+					} else { // Se l'input è presente nel mezzo del path, creo un secondo percorso e lo
+								// aggiungo al messaggio
 						addNewPath(mex, path, inputIndex);
 					}
 
-					if (output.equals(mex.queryOutput)) { 					// Query conclusa
+					if (output.equals(mex.queryOutput)) { // Query conclusa
 						mex.setFind(true);
 					}
 				}
@@ -183,156 +184,166 @@ public class MyProtocol implements CDProtocol {
 		}
 	}
 
-	//TESTED
+	// TESTED
 	public void addNewPath(Message mex, PathInfo path, int index) {
 
-		PathInfo newPath = path.getAlternativePath(id, output,executionTime, index);
+		PathInfo newPath = path.getAlternativePath(id, output, executionTime, index);
 
 		mex.addPath(newPath);
 	}
 
-	//TESTED
-	//Controlla se il nuovo nodo ha un tempo di esecuzione minore dei nodi che andrebbe a sostituire, in caso positivo modifica il path
+	// TESTED
+	// Controlla se il nuovo nodo ha un tempo di esecuzione minore dei nodi che
+	// andrebbe a sostituire, in caso positivo modifica il path
 	public void optimizePath(PathInfo path, int start, int end) {
-		if(path.getExecTime(start, end) >= this.executionTime) {
-			path.modifyPath(id, output,executionTime, start, end);
+		if (path.getExecTime(start, end) >= this.executionTime) {
+			path.modifyPath(id, output, executionTime, start, end);
 		}
 	}
-	
 
-	//azioni da fare in caso di messaggio di risposta
+	// azioni da fare in caso di messaggio di risposta
 	public void concludedMessageAction(Message mex) {
-		
-		for(PathInfo path : mex.paths) {
+
+		for (PathInfo path : mex.paths) {
 			addToCache(path);
 		}
-		
+
 		addConcludedMessage(mex);
-		find=true;
-		
+		find = true;
+
 	}
-	
-	//Inserisce un messaggio nel buffer delle risposte  //TODO TODO TODO 
+
+	// Inserisce un messaggio nel buffer delle risposte //TODO TODO TODO
 	public void addConcludedMessage(Message newMex) {
 		int best;
-		
-		for(Message mex: concludedMessage) {
-			if(mex.getMessageId() == newMex.getMessageId()) {
+
+		for (Message mex : concludedMessage) {
+			if (mex.getMessageId() == newMex.getMessageId()) {
 				mex.meshPath(newMex);
-				best = mex.selectBestPath();  //TODO controllo tra i 2 migliori, non su tutti //TODO selectBestPath modifica il valore di selectePAth
+				best = mex.selectBestPath(); // TODO controllo tra i 2 migliori, non su tutti //TODO selectBestPath
+												// modifica il valore di selectePAth
 				mex.setSelectedPath(best);
 				mex.setFind(true);
 				return;
 			}
 		}
-		
-		concludedMessage.add(newMex);  //Il selectedpath già è stato trovato?
+
+		concludedMessage.add(newMex); // Il selectedpath già è stato trovato?
 		responseTime.add(CommonState.getTime());
 	}
-	
+
 	public void checkResponse() {
-		for(int i= 0; i <responseTime.size(); i++) {
-			if(CommonState.getTime()-responseTime.get(i)>=maxWait) {
-				
-				//TODO massimo tempo di attesa
-				//TODO Scriverlo su un file separato per vedere i path totali e quelli selezionati alla fine?
+		for (int i = 0; i < responseTime.size(); i++) {
+			if (CommonState.getTime() - responseTime.get(i) >= maxWait) {
+
+				// TODO massimo tempo di attesa
+				// TODO Scriverlo su un file separato per vedere i path totali e quelli
+				// selezionati alla fine?
 			}
 		}
 	}
-	
-	/////////////////////////////////////////////////////////// CACHE TESTED///////////////////////////////////////////////////////////////
-	
 
-	public void addToCache(PathInfo newPath) { 
-		
+	/////////////////////////////////////////////////////////// CACHE
+	/////////////////////////////////////////////////////////// TESTED///////////////////////////////////////////////////////////////
+
+	public void addToCache(PathInfo newPath) {
+
 		for (PathInfo cPath : cachePath) { // Per ogni path in cache controllo che il path non sia ridondante
-			
 
-			if(newPath.idSize()==0) {
+			if (newPath.idSize() == 0) {
 				return;
 			}
 
-			/*if (newPath.getLastOutput().equals(output) && newPath.idSize()>1) {		//Sel'ultimo output corrisponde a quello del servizio, controllo sul path sena l'ultimo output
-				if (cPath.isRedundant(newPath.getTrunk(0, newPath.idSize() - 1))) {
-					return;
-				}
-			}*/
+			/*
+			 * if (newPath.getLastOutput().equals(output) && newPath.idSize()>1) {
+			 * //Sel'ultimo output corrisponde a quello del servizio, controllo sul path
+			 * sena l'ultimo output if (cPath.isRedundant(newPath.getTrunk(0,
+			 * newPath.idSize() - 1))) { return; } }
+			 */
 
 			if (cPath.isRedundant(newPath)) { // Se il path è ridondante con uno in cache
 				return;
 			}
 		}
 
-		
-		inverseRedundant(newPath); //Controllo che non ci siano path in cache ridondanti con il nuovo path
+		inverseRedundant(newPath); // Controllo che non ci siano path in cache ridondanti con il nuovo path
 
 		cachePath.add(newPath); // Se il path non è ridondante con nessun path in cache
 
 	}
 
-	public void checkCacheQuery(Message mex) {
-		int inputIndex;
-		int outputIndex;
-		String output = mex.queryOutput;
+	// Prende la parte di cache path che risolve la query
+	private void takeCacheTrunk(Message mex, PathInfo cPath, int qInputIndex, int outputIndex, boolean add) {
+		
+		if (qInputIndex >= 0 && (qInputIndex < outputIndex)) { 					// Se l'input/output della query è presente nel path cache in ordine giusto
+			
+			PathInfo newPath = cPath.getTrunk(qInputIndex, outputIndex);		//Prendo il pezzo di path che risolve la query
 
-		/*if (output.equals(this.output)) {		//se l'output della query corrisponde a quello del servizio attuale, cerco direttamente l'input del servizio
-			output = this.input;				//TODO non sempre esatto
-		}*/
-
-		for (PathInfo path : cachePath) {
-			if ((inputIndex = path.getParamIndex(mex.queryInput)) < 0) {		//Se è presente l'input della query
-				continue;
+			if (add) {
+				newPath.addEndNode(id, output, executionTime);					//Se il nodo ha l'output che risolve la query, allora stavo cercando il suo input. aggiungo il nodo finale
 			}
-
-			if ((outputIndex = path.getParamIndex(output)) <= 0) {				//Se è presente l'output della query
-				continue;
-			}
-
-			if ((inputIndex < outputIndex)) {									//Se l'input è presente prima della query
-				PathInfo newPath = path.getTrunk(inputIndex, outputIndex);
-
-				/*if (mex.queryOutput.equals(this.output)) {						//se ho cercato l'input del servizio invece che l'output della query
-					newPath.addEndNode(this.id, this.output,executionTime);
-				}*/
-
-				mex.addPath(newPath);
-				mex.setFind(true);
-			}
+			mex.addPath(newPath);
+			mex.setFind(true);
+			
 		}
+		
 	}
 
-	public PathInfo checkCachePath(PathInfo path, String output) {// TODO da fare per ogni path nel messaggio
+	// Controllo se il mex e il path cache possono darmi una soluzione
+	public PathInfo findComposedPath(Message mex, PathInfo mPath, PathInfo cPath, int outputIndex) {
+		
+		int pInputIndex;
+		for (int i = outputIndex; i >= 0; i--) { // Controllo tutti i parametri del path per vedere se
+													// presente un input di quelli presenti nel cache path
 
-		int inputIndex;
+			pInputIndex = mPath.getParamIndex(cPath.getParamByIndex(i));
+
+			if (pInputIndex >= 0) { // Input trovato: mi creo il path usando l'inizio del path del mex e la fine del path in cache
+
+				PathInfo newPath = mPath.getTrunk(0, pInputIndex);
+				newPath.addPath(cPath.getTrunk(i, outputIndex));
+				return newPath;
+			}
+		}
+		return null;
+
+	}
+
+	public void useCache(Message mex) {
+		checkCacheQuery(mex);		//Risolvo solo con path in cache
+		analyzeWithCache(mex);		//Risolvo componendo path in cache e path nel messaggio
+
+	}
+
+	//Controllo se la cache, insieme al path in input, può risolvere la query
+	public PathInfo checkCachePath(Message mex, PathInfo path) {
+
 		int outputIndex;
-		String findOutput = output;
-
-		/*if (output.equals(this.output)) {			//TODO non sempre esatto
-			findOutput = this.input;
-		}*/
+		PathInfo newPath;
 
 		for (PathInfo cPath : cachePath) {
-			
-			outputIndex = cPath.getParamIndex(findOutput);		
-			if (outputIndex <= 0) { 					// Se l'output è presente
-				continue;
+
+			outputIndex = cPath.getParamIndex(mex.queryOutput);
+
+			if (outputIndex > 0) { // Se l'output è presente
+				newPath = findComposedPath(mex, path, cPath, outputIndex); // Controllo se il cache path attuale mi
+																			// risolve la query
+
+				if (newPath != null) {
+					mex.addPath(newPath);
+					mex.setFind(true);
+				}
 			}
 
-			for (int i = outputIndex; i >= 0; i--) { // Controllo tutti i parametri del path per vedere se presente un
-													// input di quelli cercati
-
-				inputIndex = path.getParamIndex(cPath.getParamByIndex(i));
-
-				if (inputIndex >= 0) { // Input trovato, mi creo il path usando l'inizio del path del mex e la fine del
-										// path in cache
-					
-					PathInfo newPath = path.getTrunk(0, inputIndex);
-					newPath.addPath(cPath.getTrunk(i, outputIndex)); //TODO controllo
-
-					/*if (output.equals(this.output)) {
-						newPath.addEndNode(this.id, this.output,executionTime);
-					}*/
-					return newPath;
+			if (mex.queryOutput.equals(output)) {
+				outputIndex = cPath.getParamIndex(input);
+				if (outputIndex > 0) {
+					newPath = findComposedPath(mex, path, cPath, outputIndex);
+					if (newPath != null) {
+						newPath.addEndNode(id, output, executionTime);
+						mex.addPath(newPath);
+						mex.setFind(true);
+					}
 				}
 			}
 
@@ -340,56 +351,74 @@ public class MyProtocol implements CDProtocol {
 		return null;
 	}
 
+	// Controlla se un path in cache può rispondere alla query
+	public void checkCacheQuery(Message mex) {
+
+		int qInputIndex;
+		int qOutputIndex;
+		int nInputIndex;
+
+		/*
+		 * ArrayList<PathInfo> actualCPaths = new ArrayList<>();
+		 * actualCPaths.addAll(cachePath);
+		 */
+
+		for (PathInfo cPath : cachePath) {
+			qInputIndex = cPath.getParamIndex(mex.queryInput);
+			qOutputIndex = cPath.getParamIndex(mex.queryOutput);
+			nInputIndex = cPath.getParamIndex(input);
+
+			if (qOutputIndex > 0) {
+				takeCacheTrunk(mex, cPath, qInputIndex, qOutputIndex, false); // Cerco una soluzione completa tramite i
+																				// solo
+			}
+
+			if (nInputIndex > 0 && mex.queryOutput.equals(output)) {
+				takeCacheTrunk(mex, cPath, qInputIndex, nInputIndex, true);
+			}
+
+		}
+
+	}
+
+	//Analizzo i path nel messaggio utilizzando quelli in query
 	private void analyzeWithCache(Message mex) {
-		ArrayList<PathInfo> actualPaths = new ArrayList<PathInfo>();
+		ArrayList<PathInfo> actualPaths = new ArrayList<>();
 		actualPaths.addAll(mex.paths);
-		PathInfo cPath;
 
 		for (PathInfo path : actualPaths) { // per ogni percorso
 
-			cPath = checkCachePath(path, mex.queryOutput); // Controlla se qualcuno può risolvere la query
+			checkCachePath(mex, path); // Controlla se qualcuno può risolvere la query
 
-			if (cPath != null) {
-				mex.addPath(cPath);
-				mex.setFind(true);
-				//addToCache(cPath); //TODO vale la pena aggiungere anche questo path
-			}
 			addToCache(path);
-			
+
 		}
 	}
 
-	public void useCache(Message mex) {
-		checkCacheQuery(mex); 
-		analyzeWithCache(mex);
-
-	}
-
-	public void inverseRedundant(PathInfo newPath) { //Metodo per ripulire la cache da path ridondanti.
+	public void inverseRedundant(PathInfo newPath) { // Metodo per ripulire la cache da path ridondanti.
 		ArrayList<PathInfo> actualPaths = new ArrayList<PathInfo>();
 		actualPaths.addAll(cachePath);
 		for (PathInfo cPath : actualPaths) {
-			if(newPath.isRedundant(cPath)) {
+			if (newPath.isRedundant(cPath)) {
 				cachePath.remove(cPath);
 			}
 		}
 
 	}
-	
-	
-	//////////////////////////////////////////////////////////// SEND ////////////////////////////////////////////////////////////////
-	
-	
+
+	//////////////////////////////////////////////////////////// SEND
+	//////////////////////////////////////////////////////////// ////////////////////////////////////////////////////////////////
+
 	public void sendAction(Node node, int protocolID, Message mex) {
 
 		if (mex.getFind()) { // Se la ricerca risulta completa
 			sendBack(mex);
-		} else { 			// Se la ricerca deve continuare
+		} else { // Se la ricerca deve continuare
 			sendToNeighbor(node, protocolID, mex);
 		}
 	}
 
-	public MyProtocol findNodeById(int id) { //TODO migliorabile?
+	public MyProtocol findNodeById(int id) { // TODO migliorabile?
 
 		for (int i = 0; i < Network.size(); i++) {
 
@@ -410,28 +439,27 @@ public class MyProtocol implements CDProtocol {
 		Message newMex = mex.duplicateMex();
 		newMex.setSenderId(id);
 		pro.addMessage(newMex);
-	
+
 	}
 
-
-	//Inserisce il messaggio nel buffer
+	// Inserisce il messaggio nel buffer
 	public void addMessage(Message newMex) {
 		sendMessage++;
-		
+
 		for (Message mex : messagesBuffer) {
 
 			if (mex.getMessageId() == newMex.getMessageId() && newMex.getFind() == mex.getFind()) {
 				mex.meshPath(newMex);
-				return; 		// TODO scarto troppo o troppo poco?? fai prova ma con questa
-								// linea i messaggi vengono drasticamente diminuiti
-								// grazie alla cache solo 1 ciclo in più risparminado mex:
-								// da 102.300 a 292
+				return; // TODO scarto troppo o troppo poco?? fai prova ma con questa
+						// linea i messaggi vengono drasticamente diminuiti
+						// grazie alla cache solo 1 ciclo in più risparminado mex:
+						// da 102.300 a 292
 			}
 
 		}
 
 		messagesBuffer.add(newMex);
-		
+
 	}
 
 	public void sendMessage(Message mex, MyProtocol node) {
@@ -457,7 +485,7 @@ public class MyProtocol implements CDProtocol {
 
 		for (int i = 0; i < linkable.degree(); ++i) {
 			Node peer = linkable.getNeighbor(i);
-			
+
 			// The selected peer could be inactive
 			if (!peer.isUp()) {
 				continue;
@@ -469,7 +497,8 @@ public class MyProtocol implements CDProtocol {
 						"\tid vicino:\t " + n.getId() + "\tInput:\t" + n.getInput() + "\tOutput:\t" + n.getOutput());
 			}
 
-			if (mex.getSenderId() == n.getId()) { // non invio al nodo che mi ha inviato il messaggio //TODO possibilità di scelta tramite parametri?
+			if (mex.getSenderId() == n.getId()) { // non invio al nodo che mi ha inviato il messaggio //TODO possibilità
+													// di scelta tramite parametri?
 				continue;
 			} else {
 				sendMessage(mex, n);
@@ -477,43 +506,46 @@ public class MyProtocol implements CDProtocol {
 		}
 	}
 
-	public void clearMessages() { 
+	public void clearMessages() {
 		messagesBuffer.clear();
 	}
 
-	
-	
-	
-	
 	//////////////////////////////////////////////////////////// PRINT////////////////////////////////////////////////////////////////
 
 	public void printInfo() {
 
-		System.out.println("\nID Nodo: " + id + "\tInput:\t" + input + "\tOutput:\t" + output + "\tExecTime: " + executionTime);
+		System.out.println(
+				"\nID Nodo: " + id + "\tInput:\t" + input + "\tOutput:\t" + output + "\tExecTime: " + executionTime);
 
 	}
 
 	public void printMessages() {
-		
-		
+
 		System.out.println("\n////////////////////////////////////////Messaggi nel buffer:\n");
-			for (Message mex : messagesBuffer) {
-				mex.printInfo();
-			}
-			
-			
-			System.out.println("\n/////////////////////////////////////Path in cache:\n");
-			for(PathInfo path: cachePath) {
-				path.printPath();
-			}
-			
-			
-			System.out.println("\n////////////////////////////////////Messaggi conclusi\n");
-			for (Message mex : concludedMessage) {
-				mex.printInfo();
-			}
+		for (Message mex : messagesBuffer) {
+			mex.printInfo();
+		}
+
+		System.out.println("\n/////////////////////////////////////Path in cache:\n");
+		for (PathInfo path : cachePath) {
+			path.printPath();
+		}
+
+		System.out.println("\n////////////////////////////////////Messaggi conclusi\n");
+		for (Message mex : concludedMessage) {
+			mex.printInfo();
+		}
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	////////////////////////////// NON USATE///////////////////////////////
 
 	public void sendToNeighborAA(Node node, int protocolID) {
@@ -706,20 +738,19 @@ public class MyProtocol implements CDProtocol {
 	 * 
 	 * 
 	 */
-	
+
 	public double getTotalExecTime2(PathInfo path) {
-		
+
 		Double total = 0.0;
 		MyProtocol pro;
-		
-		for(int id: path.getIds()) {
+
+		for (int id : path.getIds()) {
 			pro = findNodeById(id);
-			total+=pro.getExecTime();
+			total += pro.getExecTime();
 		}
-		
+
 		return total;
 	}
-	
 
 	public void addResponse2(Message newMex) {
 		for (Message mex : concludedMessage) {
@@ -731,19 +762,207 @@ public class MyProtocol implements CDProtocol {
 		concludedMessage.add(newMex);
 	}
 
-	
 	public double getPathExecTime2(PathInfo path, int start, int end) {
-		
+
 		Double total = 0.0;
 		MyProtocol pro;
-		
-		for(int id: path.getTrunk(start,end).getIds()) {
+
+		for (int id : path.getTrunk(start, end).getIds()) {
 			pro = findNodeById(id);
-			total+=pro.getExecTime();
-			//System.out.println("node: " + pro.getId() + "\ttime: " + pro.getExecTime());
+			total += pro.getExecTime();
+			// System.out.println("node: " + pro.getId() + "\ttime: " + pro.getExecTime());
 		}
-		
-	
+
 		return total;
 	}
+
+	public PathInfo checkCachePath3(PathInfo path, String output) {// TODO da fare per ogni path nel messaggio
+
+		int inputIndex;
+		int outputIndex;
+		String findOutput = output;
+
+		for (PathInfo cPath : cachePath) {
+
+			outputIndex = cPath.getParamIndex(findOutput);
+			if (outputIndex <= 0) { // Se l'output è presente
+				continue;
+			}
+
+			for (int i = outputIndex; i >= 0; i--) { // Controllo tutti i parametri del path per vedere se presente un
+														// input di quelli cercati
+
+				inputIndex = path.getParamIndex(cPath.getParamByIndex(i));
+
+				if (inputIndex >= 0) { // Input trovato, mi creo il path usando l'inizio del path del mex e la fine del
+										// path in cache
+
+					PathInfo newPath = path.getTrunk(0, inputIndex);
+					newPath.addPath(cPath.getTrunk(i, outputIndex)); // TODO controllo
+
+					return newPath;
+				}
+			}
+
+		}
+		return null;
+	}
+
+	public void checkCache2(Message mex) {
+		int qInputIndex;
+		int qOutputIndex;
+		int nInputIndex;
+		int nOutputIndex;
+		PathInfo newPath;
+		boolean pathFind = false;
+		ArrayList<PathInfo> actualPaths = new ArrayList<>();
+		actualPaths.addAll(mex.paths);
+
+		for (PathInfo cPath : cachePath) {
+			qInputIndex = cPath.getParamIndex(mex.queryInput);
+			qOutputIndex = cPath.getParamIndex(mex.queryOutput);
+			nInputIndex = cPath.getParamIndex(input);
+			nOutputIndex = cPath.getParamIndex(output);
+
+			if (qOutputIndex > 0) {
+				if (qInputIndex >= 0 && (qInputIndex < qOutputIndex)) { // Se l'input/output della query è presente nel
+																		// path cache
+					newPath = cPath.getTrunk(qInputIndex, qOutputIndex);
+					mex.addPath(newPath);
+					pathFind = true;
+					// pathFind = check1(mex,cPath,qInputIndex, qOutputIndex );
+				} // else { // Cerco nei path del messaggio
+					// check2(mex,cPath,qOutputIndex);
+
+				/*
+				 * for (PathInfo mPath : actualPaths) { cPath = check2(mPath, mex.queryOutput);
+				 * // Controlla se qualcuno può risolvere la query
+				 * 
+				 * if (cPath != null) { mex.addPath(cPath); mex.setFind(true); //
+				 * addToCache(cPath); //TODO vale la pena aggiungere anche questo path }
+				 * addToCache(path); /*int pInputIndex; for (int i = qOutputIndex; i >= 0; i--)
+				 * { // Controllo tutti i parametri del path per vedere se // presente un //
+				 * input di quelli cercati
+				 * 
+				 * pInputIndex = mPath.getParamIndex(cPath.getParamByIndex(i));
+				 * 
+				 * if (pInputIndex >= 0) { // Input trovato, mi creo il path usando l'inizio del
+				 * path del mex e // la fine del // path in cache
+				 * 
+				 * newPath = mPath.getTrunk(0, pInputIndex); newPath.addPath(cPath.getTrunk(i,
+				 * qOutputIndex)); // TODO controllo
+				 * 
+				 * mex.addPath(newPath); pathFind = true; } }
+				 */
+
+				// }
+			}
+
+			/*
+			 * if (nInputIndex > 0 && mex.queryOutput.equals(output)) { // Se l'output del
+			 * nodo è proprio ò'output della query
+			 * 
+			 * if (qInputIndex >= 0 && (qInputIndex < nInputIndex)) { newPath =
+			 * cPath.getTrunk(qInputIndex, nInputIndex); mex.addPath(newPath); pathFind =
+			 * true; //pathFind = check1(mex,cPath,qInputIndex, nInputIndex ); } else { //
+			 * Cerco nei path del messaggio //check2(mex,cPath,nInputIndex); }
+			 * 
+			 * }
+			 */
+
+		}
+
+		if (pathFind) {
+			mex.setFind(true);
+		}
+	}
+
+	public void checkFromCacheToMex(Message mex) {
+		int qInputIndex;
+		int qOutputIndex;
+		int nInputIndex;
+		// int nOutputIndex;
+		// PathInfo newPath;
+		// boolean pathFind = false;
+
+		ArrayList<PathInfo> actualCPaths = new ArrayList<>();
+		actualCPaths.addAll(cachePath);
+
+		for (PathInfo cPath : actualCPaths) {
+			qInputIndex = cPath.getParamIndex(mex.queryInput);
+			qOutputIndex = cPath.getParamIndex(mex.queryOutput);
+			nInputIndex = cPath.getParamIndex(input);
+			// nOutputIndex = cPath.getParamIndex(output);
+
+			if (qOutputIndex > 0) {
+				takeCacheTrunk(mex, cPath, qInputIndex, qOutputIndex, false); // Cerco una soluzione completa tramite i
+																				// solo
+				// path in cache
+				check2(mex, cPath, qOutputIndex, false); // cerco una soluzione controllando i path nel messaggio
+			}
+
+			if (nInputIndex > 0 && mex.queryOutput.equals(output)) {
+				takeCacheTrunk(mex, cPath, qInputIndex, nInputIndex, true);
+				check2(mex, cPath, nInputIndex, true);
+			}
+
+		}
+
+	}
+
+	// Controllo se posso trovare una soluzione con il path in cache per qualche
+	// path nel messaggio
+	private boolean check2(Message mex, PathInfo cPath, int outputIndex, boolean add) {
+		ArrayList<PathInfo> actualPaths = new ArrayList<PathInfo>();
+		actualPaths.addAll(mex.paths);
+		boolean pathFind = false;
+		PathInfo newPath;
+
+		for (PathInfo path : actualPaths) { // per ogni percorso
+
+			newPath = findComposedPath(mex, path, cPath, outputIndex); // Controlla se qualcuno può risolvere la query
+
+			if (newPath != null) {
+				if (add) {
+					newPath.addEndNode(id, output, executionTime);
+				}
+				mex.addPath(newPath);
+				mex.setFind(true);
+				// addToCache(cPath); //TODO vale la pena aggiungere anche questo path
+				pathFind = true;
+			}
+			addToCache(path);
+
+		}
+		return pathFind;
+	}
+
+	/*
+	 * if (output.equals(this.output)) { //se l'output della query corrisponde a
+	 * quello del servizio attuale, cerco direttamente l'input del servizio output =
+	 * this.input; //TODO non sempre esatto }
+	 */
+
+	/*
+	 * int inputIndex; int outputIndex; String output = mex.queryOutput;
+	 * 
+	 * 
+	 * for (PathInfo path : cachePath) { if ((inputIndex =
+	 * path.getParamIndex(mex.queryInput)) < 0) { // Se non è presente l'input della
+	 * query continue; }
+	 * 
+	 * if ((outputIndex = path.getParamIndex(output)) <= 0) { // Se non è presente
+	 * l'output della query continue; }
+	 * 
+	 * if ((inputIndex < outputIndex)) { // Se l'input è presente prima dell'output
+	 * PathInfo newPath = path.getTrunk(inputIndex, outputIndex);
+	 */
+	/*
+	 * if (mex.queryOutput.equals(this.output)) { //se ho cercato l'input del
+	 * servizio invece che l'output della query newPath.addEndNode(this.id,
+	 * this.output,executionTime); }
+	 */
+	/*
+	 * mex.addPath(newPath); mex.setFind(true); } }
+	 */
 }

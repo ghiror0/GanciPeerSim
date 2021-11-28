@@ -7,17 +7,17 @@ import java.util.List;
 public class PathInfo {
 	private ArrayList<String> parameters; // nodeID 'index' --> input: 'index', output 'index+1'
 	private ArrayList<Integer> nodesId;
-	private ArrayList<Integer> execTime;
+	private ArrayList<Integer> executionTime;
 
 	public PathInfo() {
-		parameters = new ArrayList<String>();
-		nodesId = new ArrayList<Integer>();
-		execTime = new ArrayList<Integer>();
+		parameters = new ArrayList<>();
+		nodesId = new ArrayList<>();
+		executionTime = new ArrayList<>();
 	}
 	
 	
 	///////////////////////////////////////////////////////////////GET-SET//////////////////////////////////
-	public ArrayList<Integer> getIds(){
+	public List<Integer> getIds(){
 		return nodesId;
 	}
 
@@ -41,15 +41,14 @@ public class PathInfo {
 
 	public void addExecTime(List<Integer> time) {
 		for(int newTime: time) {
-			execTime.add(newTime);
+			executionTime.add(newTime);
 		}
 	}
 	
-	public void removeExecTime(int start, int end) {
-		/*for(int i= end-1; i>start;i++) {
-			this.execTime.remove(i-1);
-		}*/
-		execTime.removeAll(execTime.subList(start, end));
+	public void removeExecTime(int start, int end) { //Rimuove i tempi di esecuzione dei nodi da end a start compresi
+		for(int i = end; i >= start;i--) {
+			executionTime.remove(i);
+		}
 	}
 	
 	//TESTED
@@ -58,7 +57,7 @@ public class PathInfo {
 		newPath.parameters.remove(0);
 		parameters.addAll(newPath.parameters);
 		nodesId.addAll(newPath.nodesId);
-		addExecTime(newPath.execTime);
+		addExecTime(newPath.executionTime);
 	}
 
 	/**TESTED
@@ -72,7 +71,7 @@ public class PathInfo {
 	private void addNode(int nodeId, String output, int execTime, int index) {
 		nodesId.add(index, nodeId);
 		parameters.add(index + 1, output);
-		this.execTime.add(index, execTime);
+		executionTime.add(index, execTime);
 	}
 	
 	
@@ -87,7 +86,7 @@ public class PathInfo {
 	public void addEndNode(int nodeId, String output, int execTime) {
 		nodesId.add(nodeId);
 		parameters.add(output);
-		this.execTime.add(execTime);
+		executionTime.add(execTime);
 	}
 	
 	/**
@@ -112,9 +111,9 @@ public class PathInfo {
 	 */
 	public PathInfo getTrunk(int start, int end) {
 		PathInfo newPath = new PathInfo();
-		newPath.nodesId.addAll(this.nodesId.subList(start, end));
-		newPath.parameters.addAll(this.parameters.subList(start, end + 1));
-		newPath.addExecTime(this.execTime.subList(start, end));
+		newPath.nodesId.addAll(nodesId.subList(start, end));
+		newPath.parameters.addAll(parameters.subList(start, end + 1));
+		newPath.addExecTime(executionTime.subList(start, end));
 		return newPath;
 	}
 
@@ -130,7 +129,7 @@ public class PathInfo {
 	public double getExecTime(int start, int end) {
 		Double total = 0.0;
 		
-		for(double eTime: execTime.subList(start, end)) {
+		for(double eTime: executionTime.subList(start, end)) {
 			total+=eTime;
 		}
 		
@@ -140,7 +139,7 @@ public class PathInfo {
 	public double getTotalExecTime() {
 		Double total = 0.0;
 		
-		for(double eTime: execTime) {
+		for(double eTime: executionTime) {
 			total+=eTime;
 		}
 		
@@ -155,9 +154,9 @@ public class PathInfo {
 	 */
 	public PathInfo getDuplicatePath() {
 		PathInfo newPath = new PathInfo();
-		newPath.nodesId.addAll(this.nodesId);
-		newPath.parameters.addAll(this.parameters);
-		newPath.addExecTime(this.execTime);
+		newPath.nodesId.addAll(nodesId);
+		newPath.parameters.addAll(parameters);
+		newPath.addExecTime(executionTime);
 		return newPath;
 	}
 	
@@ -175,9 +174,9 @@ public class PathInfo {
 	 */
 	public PathInfo getAlternativePath(int nodeId, String output, int execTime, int index) {
 		PathInfo newPath = new PathInfo();
-		newPath.nodesId.addAll(this.nodesId.subList(0, index));
-		newPath.parameters.addAll(this.parameters.subList(0, index + 1));
-		newPath.addExecTime(this.execTime.subList(0, index));
+		newPath.nodesId.addAll(nodesId.subList(0, index));
+		newPath.parameters.addAll(parameters.subList(0, index + 1));
+		newPath.addExecTime(executionTime.subList(0, index));
 		
 		newPath.addEndNode(nodeId, output, execTime);
 		return newPath;
@@ -231,17 +230,18 @@ public class PathInfo {
 	 * 		Elimina un segmento del path inserendoci un nodo
 	 *   	sostitutivo
 	 */
-	public void modifyPath(int nodeId, String output, int execTime, int startIndex, int endIndex) {
+	public void modifyPath(int nodeId, String output, int execTime, int startIndex, int endIndex) { //TODO chiamarlo shortenPath()
 		//rimuovo la parte da eliminare
 		nodesId.removeAll(nodesId.subList(startIndex, endIndex));
-		parameters.removeAll(parameters.subList(startIndex+1, endIndex +1));
-		removeExecTime(startIndex,endIndex);
-		//this.execTime.removeAll(this.execTime.subList(startIndex, endIndex));
+		parameters.removeAll(parameters.subList(startIndex+1, endIndex+1));
+		removeExecTime(startIndex,endIndex-1);
 		
 		
 		//Aggiungo il nuovo nodo nella posizione desiderata
 		addNode(nodeId, output, execTime, startIndex);
 	}
+	
+
 
 
 	
@@ -273,7 +273,7 @@ public class PathInfo {
 		}
 		
 		ps.print("\nExecTime:\n\t");
-		for (int time : execTime) {
+		for (int time : executionTime) {
 			ps.print(time + "\t");
 		}
 		

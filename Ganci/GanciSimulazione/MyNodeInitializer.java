@@ -20,6 +20,8 @@ public class MyNodeInitializer implements Control {
 	//private static String[] parameters = { "a", "b", "c", "d", "e", "f", "g", "h", "i", "l", "m", "n", "o", "p", "q","r", "s", "t", "u", "v", "z", "aa", "bb", "cc", "dd", "ff", "gg", "qq" };
 	private int freeId = 0;
 	public String name;
+	public static StringBuilder nodesInfo = new StringBuilder();
+	public static StringBuilder queryInfo = new StringBuilder();
 	
 	int queryNum;
 
@@ -55,16 +57,28 @@ public class MyNodeInitializer implements Control {
 			n = Network.get(i);
 			prot = (MyProtocol) n.getProtocol(pid); 		//Prendo e inizializzo il protocollo del nodo
 			setProtocol(prot);
-			prot.printInfo();  								//TODO Scrivere su file
+			nodesInfo.append(takeNodeInfo(prot));
+			prot.printInfo();  								
 		}
 		
 		System.out.println("\n\n\n"); 						//TODO rimuovere
 	}
 	
+	
 	private void initializeQuery() {
+		
 		for(int i = 0; i < queryNum;i++) {
 			sendQuery();
 		}
+	}
+	
+	private String takeNodeInfo(MyProtocol prot) {
+		return "\nID Nodo: " + prot.getId() + "\tInput:\t" + prot.getInput() + "\tOutput:\t" + 
+				prot.getOutput() + "\tExecTime: " + prot.getExecTime();
+	}
+	
+	private String takeQueryInfo(Message mex) {
+		return "\nID query: " + mex.getMessageId() + "\tInput:\t" + mex.queryInput + "\tOutput:\t" +mex.queryOutput;
 	}
 	
 	
@@ -103,6 +117,7 @@ public class MyNodeInitializer implements Control {
 
 		prot.addMessage(mex);
 		mex.mexInfo();
+		queryInfo.append(takeQueryInfo(mex));
 
 	}
 }

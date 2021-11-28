@@ -15,15 +15,15 @@ public class MyObserver implements Control {
 // Parameters
 // ------------------------------------------------------------------------
 
-	static private final String PAR_PROT = "protocol";
-	static private final String CYCLES = "simulation.cycles";
-	static private final String SEED = "random.seed";
-	static private final String NETSIZE = "network.size";
-	static private final String CACHE = "protocol.MyProtocol.cache";
-	static private final String LIVEOPT = "protocol.MyProtocol.liveOpt";
-	static private final String NUMQUERY = "init.2.queryNum";
-	static private final String DIR = "results/QueryResult";
-	static private final String CONNECT = "init.1.connectivity";
+	private static final String PAR_PROT = "protocol";
+	private static final String CYCLES = "simulation.cycles";
+	private static final String SEED = "random.seed";
+	private static final String NETSIZE = "network.size";
+	private static final String CACHE = "protocol.MyProtocol.cache";
+	private static final String LIVEOPT = "protocol.MyProtocol.liveOpt";
+	private static final String NUMQUERY = "init.2.queryNum";
+	private static final String DIR = "results/QueryResult";
+	private static final String CONNECT = "init.1.connectivity";
 
 	long seed;
 	private int lastCycle;
@@ -68,10 +68,10 @@ public class MyObserver implements Control {
 		result_filename = DIR + seed + "-" + netSize + "-"+ connect +  "-" + numQuery + "-" + cacheChar + liveOptChar + ".txt";
 		
 		
-		pathList = new ArrayList<ArrayList<PathInfo>>();
-		messages = new ArrayList<ArrayList<Long>>();
-		queryId = new ArrayList<Integer>();
-		selectedPath = new ArrayList<Integer>();
+		pathList = new ArrayList<>();
+		messages = new ArrayList<>();
+		queryId = new ArrayList<>();
+		selectedPath = new ArrayList<>();
 
 	}
 
@@ -102,8 +102,7 @@ public class MyObserver implements Control {
 
 		}
 
-		if (CommonState.getTime() == lastCycle - 1) {
-			// TODO calcolare tempo di esecuzione totale
+		if (CommonState.getTime() == lastCycle - 1) {  //Se è l'ultimo ciclo
 			printResult();
 			writeResult();
 		}
@@ -127,8 +126,8 @@ public class MyObserver implements Control {
 
 		if (!queryId.contains(query)) {
 			queryId.add(query);
-			pathList.add(new ArrayList<PathInfo>());
-			messages.add(new ArrayList<Long>());
+			pathList.add(new ArrayList<>());
+			messages.add(new ArrayList<>());
 			index = queryId.size() - 1;
 		} else {
 			index = queryId.indexOf(query);
@@ -165,6 +164,7 @@ public class MyObserver implements Control {
 				ps.println("MessagesSend: " + messages.get(j).get(i));
 				ps.println("\n");
 			}
+			ps.println("__________________________________________________________________________________________");
 		}
 
 	}
@@ -197,6 +197,14 @@ public class MyObserver implements Control {
 			pstr.println("Utilizzato meccanismo di ottimizzazione live");
 		}
 
+		pstr.println("\n\n\n\nLista dei nodi:\n\n");
+		
+		pstr.println(MyNodeInitializer.nodesInfo);
+		
+		pstr.println("\n\n\n\nLista delle query:\n\n");
+		
+		pstr.println(MyNodeInitializer.queryInfo);
+		
 		pstr.println("\n\n\n\n");
 	}
 	

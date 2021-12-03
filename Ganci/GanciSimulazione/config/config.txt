@@ -1,9 +1,9 @@
-random.seed 345564
-simulation.cycles 20
+random.seed 345564346
+simulation.cycles 60
 
 control.shf Shuffle  #cambia l'ordine con cui i nodi vengono considerati ad ogni ciclo della simulazione
 
-network.size 30
+network.size 60
  
 protocol.lnk IdleProtocol
 
@@ -22,6 +22,7 @@ protocol.MyProtocol.linkable lnk
 protocol.MyProtocol.verbose false
 protocol.MyProtocol.cache true
 protocol.MyProtocol.liveOpt true
+protocol.MyProtocol.meshPath true
 
 #init.rnd WireKOut
 #init.rnd.protocol lnk
@@ -30,7 +31,9 @@ protocol.MyProtocol.liveOpt true
 
 init.2 MyNodeInitializer
 init.2.protocol MyProtocol
-init.2.queryNum 3
+init.2.queryNum 5
+init.2.paramArray true   #true per un minor numero di parametri
+init.2.singleParam true
 
 control.avgo MyObserver
 control.avgo.protocol MyProtocol

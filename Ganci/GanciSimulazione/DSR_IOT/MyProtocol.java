@@ -115,7 +115,7 @@ public class MyProtocol implements CDProtocol {
 
 		clearMessages(); // Elimina i messaggi dal buffer
 
-		// checkResponse();
+		//checkResponse();
 
 	}
 
@@ -172,10 +172,7 @@ public class MyProtocol implements CDProtocol {
 	public void checkResponse() {
 		for (int i = 0; i < responseTime.size(); i++) {
 			if (CommonState.getTime() - responseTime.get(i) >= maxWait) {
-
 				// TODO massimo tempo di attesa
-				// TODO Scriverlo su un file separato per vedere i path totali e quelli
-				// selezionati alla fine?
 			}
 		}
 	}

@@ -1,0 +1,2834 @@
+Dettagli simulazione:
+Seed: 9873423
+Numero di cicli: 5
+Numero Nodi: 100
+Parametro di connessione: 0.05
+Numero di query: 10
+
+Utilizzato meccanismo di cache
+Utilizzato meccanismo di ottimizzazione live
+Utilizzato meccaniscmo di meshPath nell'inserimento del messaggio nel buffer
+Utilizzato array dei parametri lungo
+
+I nodi richiedono e forniscono un singolo parametro
+
+
+
+
+Lista dei nodi:
+
+
+
+ID Nodo: 0	Input:	t	Output:	cc	ExecTime: 224
+ID Nodo: 1	Input:	f	Output:	c	ExecTime: 349
+ID Nodo: 2	Input:	a	Output:	q	ExecTime: 315
+ID Nodo: 3	Input:	q	Output:	e	ExecTime: 841
+ID Nodo: 4	Input:	c	Output:	u	ExecTime: 643
+ID Nodo: 5	Input:	cc	Output:	qq	ExecTime: 282
+ID Nodo: 6	Input:	g	Output:	cc	ExecTime: 764
+ID Nodo: 7	Input:	a	Output:	u	ExecTime: 197
+ID Nodo: 8	Input:	c	Output:	v	ExecTime: 483
+ID Nodo: 9	Input:	a	Output:	i	ExecTime: 887
+ID Nodo: 10	Input:	m	Output:	bb	ExecTime: 751
+ID Nodo: 11	Input:	n	Output:	r	ExecTime: 155
+ID Nodo: 12	Input:	r	Output:	a	ExecTime: 489
+ID Nodo: 13	Input:	u	Output:	bb	ExecTime: 911
+ID Nodo: 14	Input:	c	Output:	a	ExecTime: 875
+ID Nodo: 15	Input:	o	Output:	qq	ExecTime: 527
+ID Nodo: 16	Input:	h	Output:	g	ExecTime: 673
+ID Nodo: 17	Input:	i	Output:	e	ExecTime: 318
+ID Nodo: 18	Input:	qq	Output:	m	ExecTime: 197
+ID Nodo: 19	Input:	o	Output:	q	ExecTime: 838
+ID Nodo: 20	Input:	b	Output:	o	ExecTime: 92
+ID Nodo: 21	Input:	aa	Output:	r	ExecTime: 379
+ID Nodo: 22	Input:	n	Output:	v	ExecTime: 35
+ID Nodo: 23	Input:	bb	Output:	gg	ExecTime: 247
+ID Nodo: 24	Input:	aa	Output:	cc	ExecTime: 247
+ID Nodo: 25	Input:	o	Output:	n	ExecTime: 851
+ID Nodo: 26	Input:	z	Output:	p	ExecTime: 811
+ID Nodo: 27	Input:	n	Output:	gg	ExecTime: 953
+ID Nodo: 28	Input:	h	Output:	z	ExecTime: 477
+ID Nodo: 29	Input:	z	Output:	h	ExecTime: 889
+ID Nodo: 30	Input:	h	Output:	n	ExecTime: 494
+ID Nodo: 31	Input:	o	Output:	s	ExecTime: 312
+ID Nodo: 32	Input:	q	Output:	dd	ExecTime: 407
+ID Nodo: 33	Input:	g	Output:	cc	ExecTime: 90
+ID Nodo: 34	Input:	i	Output:	p	ExecTime: 767
+ID Nodo: 35	Input:	p	Output:	c	ExecTime: 297
+ID Nodo: 36	Input:	cc	Output:	e	ExecTime: 681
+ID Nodo: 37	Input:	m	Output:	u	ExecTime: 568
+ID Nodo: 38	Input:	e	Output:	h	ExecTime: 422
+ID Nodo: 39	Input:	a	Output:	dd	ExecTime: 327
+ID Nodo: 40	Input:	e	Output:	b	ExecTime: 869
+ID Nodo: 41	Input:	m	Output:	g	ExecTime: 414
+ID Nodo: 42	Input:	r	Output:	e	ExecTime: 509
+ID Nodo: 43	Input:	l	Output:	ff	ExecTime: 609
+ID Nodo: 44	Input:	u	Output:	l	ExecTime: 754
+ID Nodo: 45	Input:	t	Output:	ff	ExecTime: 292
+ID Nodo: 46	Input:	g	Output:	i	ExecTime: 77
+ID Nodo: 47	Input:	g	Output:	l	ExecTime: 402
+ID Nodo: 48	Input:	n	Output:	r	ExecTime: 34
+ID Nodo: 49	Input:	cc	Output:	s	ExecTime: 314
+ID Nodo: 50	Input:	f	Output:	l	ExecTime: 814
+ID Nodo: 51	Input:	t	Output:	g	ExecTime: 265
+ID Nodo: 52	Input:	r	Output:	a	ExecTime: 220
+ID Nodo: 53	Input:	e	Output:	o	ExecTime: 102
+ID Nodo: 54	Input:	q	Output:	c	ExecTime: 248
+ID Nodo: 55	Input:	r	Output:	bb	ExecTime: 656
+ID Nodo: 56	Input:	qq	Output:	v	ExecTime: 328
+ID Nodo: 57	Input:	bb	Output:	r	ExecTime: 340
+ID Nodo: 58	Input:	cc	Output:	dd	ExecTime: 458
+ID Nodo: 59	Input:	d	Output:	v	ExecTime: 286
+ID Nodo: 60	Input:	u	Output:	i	ExecTime: 47
+ID Nodo: 61	Input:	h	Output:	u	ExecTime: 771
+ID Nodo: 62	Input:	aa	Output:	cc	ExecTime: 415
+ID Nodo: 63	Input:	r	Output:	aa	ExecTime: 170
+ID Nodo: 64	Input:	a	Output:	u	ExecTime: 767
+ID Nodo: 65	Input:	t	Output:	u	ExecTime: 944
+ID Nodo: 66	Input:	u	Output:	r	ExecTime: 399
+ID Nodo: 67	Input:	t	Output:	aa	ExecTime: 37
+ID Nodo: 68	Input:	aa	Output:	c	ExecTime: 736
+ID Nodo: 69	Input:	d	Output:	z	ExecTime: 148
+ID Nodo: 70	Input:	p	Output:	n	ExecTime: 601
+ID Nodo: 71	Input:	e	Output:	b	ExecTime: 883
+ID Nodo: 72	Input:	g	Output:	q	ExecTime: 120
+ID Nodo: 73	Input:	t	Output:	aa	ExecTime: 322
+ID Nodo: 74	Input:	qq	Output:	o	ExecTime: 313
+ID Nodo: 75	Input:	v	Output:	aa	ExecTime: 347
+ID Nodo: 76	Input:	e	Output:	g	ExecTime: 723
+ID Nodo: 77	Input:	aa	Output:	v	ExecTime: 159
+ID Nodo: 78	Input:	ff	Output:	e	ExecTime: 592
+ID Nodo: 79	Input:	h	Output:	e	ExecTime: 80
+ID Nodo: 80	Input:	t	Output:	z	ExecTime: 774
+ID Nodo: 81	Input:	u	Output:	dd	ExecTime: 846
+ID Nodo: 82	Input:	e	Output:	d	ExecTime: 704
+ID Nodo: 83	Input:	u	Output:	t	ExecTime: 289
+ID Nodo: 84	Input:	t	Output:	l	ExecTime: 324
+ID Nodo: 85	Input:	q	Output:	gg	ExecTime: 738
+ID Nodo: 86	Input:	a	Output:	i	ExecTime: 899
+ID Nodo: 87	Input:	l	Output:	z	ExecTime: 429
+ID Nodo: 88	Input:	p	Output:	v	ExecTime: 911
+ID Nodo: 89	Input:	n	Output:	p	ExecTime: 130
+ID Nodo: 90	Input:	v	Output:	o	ExecTime: 84
+ID Nodo: 91	Input:	n	Output:	dd	ExecTime: 875
+ID Nodo: 92	Input:	cc	Output:	r	ExecTime: 95
+ID Nodo: 93	Input:	n	Output:	h	ExecTime: 796
+ID Nodo: 94	Input:	cc	Output:	d	ExecTime: 540
+ID Nodo: 95	Input:	l	Output:	e	ExecTime: 718
+ID Nodo: 96	Input:	a	Output:	i	ExecTime: 61
+ID Nodo: 97	Input:	l	Output:	p	ExecTime: 217
+ID Nodo: 98	Input:	c	Output:	gg	ExecTime: 799
+ID Nodo: 99	Input:	t	Output:	bb	ExecTime: 157
+
+
+
+
+Lista delle query:
+
+
+Query ID: 0	Input: m	Output: q
+
+Query ID: 1	Input: p	Output: m
+
+Query ID: 2	Input: m	Output: cc
+
+Query ID: 3	Input: o	Output: dd
+
+Query ID: 4	Input: u	Output: a
+
+Query ID: 5	Input: h	Output: l
+
+Query ID: 6	Input: p	Output: b
+
+Query ID: 7	Input: a	Output: qq
+
+Query ID: 8	Input: v	Output: bb
+
+Query ID: 9	Input: t	Output: o
+
+
+
+
+
+
+
+QueryId :0
+Selected Path: 0
+Numero di path trovari: 11
+
+Param:
+	m->	g->	q->	
+Nodes id:
+	41->	72->	
+ExecTime:
+	414	120	
+
+Tempo di esecuzione totale: 534.0
+
+
+
+QueryId :6
+Selected Path: 8
+Numero di path trovari: 28
+
+Param:
+	p->	n->	r->	e->	b->	
+Nodes id:
+	70->	48->	42->	40->	
+ExecTime:
+	601	34	509	869	
+
+Tempo di esecuzione totale: 2013.0
+
+
+
+QueryId :7
+Selected Path: 3
+Numero di path trovari: 13
+
+Param:
+	a->	u->	t->	cc->	qq->	
+Nodes id:
+	7->	83->	0->	5->	
+ExecTime:
+	197	289	224	282	
+
+Tempo di esecuzione totale: 992.0
+
+
+
+QueryId :4
+Selected Path: 0
+Numero di path trovari: 38
+
+Param:
+	u->	r->	a->	
+Nodes id:
+	66->	52->	
+ExecTime:
+	399	220	
+
+Tempo di esecuzione totale: 619.0
+
+
+
+QueryId :2
+Selected Path: 2
+Numero di path trovari: 15
+
+Param:
+	m->	g->	cc->	
+Nodes id:
+	41->	33->	
+ExecTime:
+	414	90	
+
+Tempo di esecuzione totale: 504.0
+
+
+
+QueryId :5
+Selected Path: 1
+Numero di path trovari: 4
+
+Param:
+	h->	u->	t->	l->	
+Nodes id:
+	61->	83->	84->	
+ExecTime:
+	771	289	324	
+
+Tempo di esecuzione totale: 1384.0
+
+
+
+QueryId :8
+Selected Path: 5
+Numero di path trovari: 16
+
+Param:
+	v->	o->	qq->	m->	bb->	
+Nodes id:
+	90->	15->	18->	10->	
+ExecTime:
+	84	527	197	751	
+
+Tempo di esecuzione totale: 1559.0
+
+
+
+QueryId :3
+Selected Path: 1
+Numero di path trovari: 4
+
+Param:
+	o->	q->	dd->	
+Nodes id:
+	19->	32->	
+ExecTime:
+	838	407	
+
+Tempo di esecuzione totale: 1245.0
+
+
+
+QueryId :1
+Selected Path: 27
+Numero di path trovari: 30
+
+Param:
+	p->	n->	v->	o->	qq->	m->	
+Nodes id:
+	70->	22->	90->	15->	18->	
+ExecTime:
+	601	35	84	527	197	
+
+Tempo di esecuzione totale: 1444.0
+
+
+
+QueryId :9
+Selected Path: 2
+Numero di path trovari: 53
+
+Param:
+	t->	aa->	v->	o->	
+Nodes id:
+	67->	77->	90->	
+ExecTime:
+	37	159	84	
+
+Tempo di esecuzione totale: 280.0
+
+
+
+
+
+
+
+
+Risultati Simulazione:
+
+
+QueryId :0
+Selected Path: 0
+Numero di path trovari: 11
+
+Param:
+	m->	g->	q->	
+Nodes id:
+	41->	72->	
+ExecTime:
+	414	120	
+
+Tempo di esecuzione totale: 534.0
+
+
+
+Lista dei path:
+
+
+id path : 0	
+Param:
+	m->	g->	q->	
+Nodes id:
+	41->	72->	
+ExecTime:
+	414	120	
+
+MessagesSend: 7922
+
+
+id path : 1	
+Param:
+	m->	u->	t->	aa->	v->	o->	q->	
+Nodes id:
+	37->	83->	73->	77->	90->	19->	
+ExecTime:
+	568	289	322	159	84	838	
+
+MessagesSend: 7922
+
+
+id path : 2	
+Param:
+	m->	u->	t->	aa->	cc->	qq->	v->	o->	q->	
+Nodes id:
+	37->	83->	67->	24->	5->	56->	90->	19->	
+ExecTime:
+	568	289	37	247	282	328	84	838	
+
+MessagesSend: 7922
+
+
+id path : 3	
+Param:
+	m->	u->	t->	cc->	e->	o->	q->	
+Nodes id:
+	37->	83->	0->	36->	53->	19->	
+ExecTime:
+	568	289	224	681	102	838	
+
+MessagesSend: 7922
+
+
+id path : 4	
+Param:
+	m->	bb->	r->	a->	q->	
+Nodes id:
+	10->	57->	52->	2->	
+ExecTime:
+	751	340	220	315	
+
+MessagesSend: 7922
+
+
+id path : 5	
+Param:
+	m->	bb->	r->	aa->	v->	o->	q->	
+Nodes id:
+	10->	57->	63->	77->	90->	19->	
+ExecTime:
+	751	340	170	159	84	838	
+
+MessagesSend: 7922
+
+
+id path : 6	
+Param:
+	m->	bb->	r->	aa->	cc->	qq->	v->	o->	q->	
+Nodes id:
+	10->	57->	63->	24->	5->	56->	90->	19->	
+ExecTime:
+	751	340	170	247	282	328	84	838	
+
+MessagesSend: 7922
+
+
+id path : 7	
+Param:
+	m->	g->	cc->	qq->	v->	o->	q->	
+Nodes id:
+	41->	33->	5->	56->	90->	19->	
+ExecTime:
+	414	90	282	328	84	838	
+
+MessagesSend: 7922
+
+
+id path : 8	
+Param:
+	m->	bb->	r->	aa->	cc->	qq->	v->	o->	q->	
+Nodes id:
+	10->	57->	63->	62->	5->	56->	90->	19->	
+ExecTime:
+	751	340	170	415	282	328	84	838	
+
+MessagesSend: 7922
+
+
+id path : 9	
+Param:
+	m->	u->	t->	g->	q->	
+Nodes id:
+	37->	83->	51->	72->	
+ExecTime:
+	568	289	265	120	
+
+MessagesSend: 7922
+
+
+id path : 10	
+Param:
+	m->	u->	t->	aa->	v->	o->	q->	
+Nodes id:
+	37->	83->	67->	77->	90->	19->	
+ExecTime:
+	568	289	37	159	84	838	
+
+MessagesSend: 7922
+
+
+__________________________________________________________________________________________
+QueryId :6
+Selected Path: 8
+Numero di path trovari: 28
+
+Param:
+	p->	n->	r->	e->	b->	
+Nodes id:
+	70->	48->	42->	40->	
+ExecTime:
+	601	34	509	869	
+
+Tempo di esecuzione totale: 2013.0
+
+
+
+Lista dei path:
+
+
+id path : 0	
+Param:
+	p->	n->	r->	e->	b->	
+Nodes id:
+	70->	48->	42->	71->	
+ExecTime:
+	601	34	509	883	
+
+MessagesSend: 7922
+
+
+id path : 1	
+Param:
+	p->	n->	v->	o->	q->	e->	b->	
+Nodes id:
+	70->	22->	90->	19->	3->	71->	
+ExecTime:
+	601	35	84	838	841	883	
+
+MessagesSend: 7922
+
+
+id path : 2	
+Param:
+	p->	v->	o->	q->	e->	b->	
+Nodes id:
+	88->	90->	19->	3->	71->	
+ExecTime:
+	911	84	838	841	883	
+
+MessagesSend: 7922
+
+
+id path : 3	
+Param:
+	p->	n->	r->	e->	b->	
+Nodes id:
+	70->	11->	42->	71->	
+ExecTime:
+	601	155	509	883	
+
+MessagesSend: 7922
+
+
+id path : 4	
+Param:
+	p->	n->	v->	o->	q->	e->	b->	
+Nodes id:
+	70->	22->	90->	19->	3->	40->	
+ExecTime:
+	601	35	84	838	841	869	
+
+MessagesSend: 7922
+
+
+id path : 5	
+Param:
+	p->	v->	o->	q->	e->	b->	
+Nodes id:
+	88->	90->	19->	3->	40->	
+ExecTime:
+	911	84	838	841	869	
+
+MessagesSend: 7922
+
+
+id path : 6	
+Param:
+	p->	n->	v->	aa->	cc->	e->	b->	
+Nodes id:
+	70->	22->	75->	24->	36->	40->	
+ExecTime:
+	601	35	347	247	681	869	
+
+MessagesSend: 7922
+
+
+id path : 7	
+Param:
+	p->	v->	aa->	cc->	e->	b->	
+Nodes id:
+	88->	75->	24->	36->	40->	
+ExecTime:
+	911	347	247	681	869	
+
+MessagesSend: 7922
+
+
+id path : 8	
+Param:
+	p->	n->	r->	e->	b->	
+Nodes id:
+	70->	48->	42->	40->	
+ExecTime:
+	601	34	509	869	
+
+MessagesSend: 7922
+
+
+id path : 9	
+Param:
+	p->	n->	v->	aa->	r->	e->	b->	
+Nodes id:
+	70->	22->	75->	21->	42->	40->	
+ExecTime:
+	601	35	347	379	509	869	
+
+MessagesSend: 7922
+
+
+id path : 10	
+Param:
+	p->	v->	aa->	r->	e->	b->	
+Nodes id:
+	88->	75->	21->	42->	40->	
+ExecTime:
+	911	347	379	509	869	
+
+MessagesSend: 7922
+
+
+id path : 11	
+Param:
+	p->	n->	r->	a->	u->	l->	e->	b->	
+Nodes id:
+	70->	48->	12->	64->	44->	95->	40->	
+ExecTime:
+	601	34	489	767	754	718	869	
+
+MessagesSend: 7922
+
+
+id path : 12	
+Param:
+	p->	n->	r->	a->	u->	l->	e->	b->	
+Nodes id:
+	70->	48->	52->	64->	44->	95->	40->	
+ExecTime:
+	601	34	220	767	754	718	869	
+
+MessagesSend: 7922
+
+
+id path : 13	
+Param:
+	p->	v->	aa->	cc->	e->	b->	
+Nodes id:
+	88->	75->	24->	36->	71->	
+ExecTime:
+	911	347	247	681	883	
+
+MessagesSend: 7922
+
+
+id path : 14	
+Param:
+	p->	n->	v->	aa->	cc->	e->	b->	
+Nodes id:
+	70->	22->	75->	24->	36->	71->	
+ExecTime:
+	601	35	347	247	681	883	
+
+MessagesSend: 7922
+
+
+id path : 15	
+Param:
+	p->	n->	r->	a->	u->	t->	cc->	e->	b->	
+Nodes id:
+	70->	48->	52->	64->	83->	0->	36->	71->	
+ExecTime:
+	601	34	220	767	289	224	681	883	
+
+MessagesSend: 7922
+
+
+id path : 16	
+Param:
+	p->	n->	r->	a->	u->	i->	e->	b->	
+Nodes id:
+	70->	48->	52->	64->	60->	17->	71->	
+ExecTime:
+	601	34	220	767	47	318	883	
+
+MessagesSend: 7922
+
+
+id path : 17	
+Param:
+	p->	n->	r->	a->	q->	e->	b->	
+Nodes id:
+	70->	48->	52->	2->	3->	40->	
+ExecTime:
+	601	34	220	315	841	869	
+
+MessagesSend: 7922
+
+
+id path : 18	
+Param:
+	p->	n->	h->	e->	b->	
+Nodes id:
+	70->	93->	79->	40->	
+ExecTime:
+	601	796	80	869	
+
+MessagesSend: 7922
+
+
+id path : 19	
+Param:
+	p->	n->	r->	a->	u->	l->	e->	b->	
+Nodes id:
+	70->	48->	52->	7->	44->	95->	40->	
+ExecTime:
+	601	34	220	197	754	718	869	
+
+MessagesSend: 7922
+
+
+id path : 20	
+Param:
+	p->	n->	r->	e->	b->	
+Nodes id:
+	70->	11->	42->	40->	
+ExecTime:
+	601	155	509	869	
+
+MessagesSend: 7922
+
+
+id path : 21	
+Param:
+	p->	n->	r->	a->	u->	i->	e->	b->	
+Nodes id:
+	70->	48->	52->	7->	60->	17->	71->	
+ExecTime:
+	601	34	220	197	47	318	883	
+
+MessagesSend: 7922
+
+
+id path : 22	
+Param:
+	p->	c->	a->	u->	r->	e->	b->	
+Nodes id:
+	35->	14->	64->	66->	42->	40->	
+ExecTime:
+	297	875	767	399	509	869	
+
+MessagesSend: 7922
+
+
+id path : 23	
+Param:
+	p->	c->	a->	u->	l->	e->	b->	
+Nodes id:
+	35->	14->	64->	44->	95->	40->	
+ExecTime:
+	297	875	767	754	718	869	
+
+MessagesSend: 7922
+
+
+id path : 24	
+Param:
+	p->	n->	v->	aa->	r->	a->	u->	l->	e->	b->	
+Nodes id:
+	70->	22->	75->	21->	52->	64->	44->	95->	40->	
+ExecTime:
+	601	35	347	379	220	767	754	718	869	
+
+MessagesSend: 7922
+
+
+id path : 25	
+Param:
+	p->	v->	aa->	r->	a->	u->	l->	e->	b->	
+Nodes id:
+	88->	75->	21->	52->	64->	44->	95->	40->	
+ExecTime:
+	911	347	379	220	767	754	718	869	
+
+MessagesSend: 7922
+
+
+id path : 26	
+Param:
+	p->	n->	v->	aa->	r->	e->	b->	
+Nodes id:
+	70->	22->	75->	21->	42->	71->	
+ExecTime:
+	601	35	347	379	509	883	
+
+MessagesSend: 7922
+
+
+id path : 27	
+Param:
+	p->	v->	aa->	r->	e->	b->	
+Nodes id:
+	88->	75->	21->	42->	71->	
+ExecTime:
+	911	347	379	509	883	
+
+MessagesSend: 7922
+
+
+__________________________________________________________________________________________
+QueryId :7
+Selected Path: 3
+Numero di path trovari: 13
+
+Param:
+	a->	u->	t->	cc->	qq->	
+Nodes id:
+	7->	83->	0->	5->	
+ExecTime:
+	197	289	224	282	
+
+Tempo di esecuzione totale: 992.0
+
+
+
+Lista dei path:
+
+
+id path : 0	
+Param:
+	a->	u->	t->	aa->	cc->	qq->	
+Nodes id:
+	64->	83->	73->	24->	5->	
+ExecTime:
+	767	289	322	247	282	
+
+MessagesSend: 7922
+
+
+id path : 1	
+Param:
+	a->	u->	t->	aa->	cc->	qq->	
+Nodes id:
+	64->	83->	67->	24->	5->	
+ExecTime:
+	767	289	37	247	282	
+
+MessagesSend: 7922
+
+
+id path : 2	
+Param:
+	a->	u->	t->	cc->	qq->	
+Nodes id:
+	64->	83->	0->	5->	
+ExecTime:
+	767	289	224	282	
+
+MessagesSend: 7922
+
+
+id path : 3	
+Param:
+	a->	u->	t->	cc->	qq->	
+Nodes id:
+	7->	83->	0->	5->	
+ExecTime:
+	197	289	224	282	
+
+MessagesSend: 7922
+
+
+id path : 4	
+Param:
+	a->	u->	t->	cc->	e->	o->	qq->	
+Nodes id:
+	7->	83->	0->	36->	53->	15->	
+ExecTime:
+	197	289	224	681	102	527	
+
+MessagesSend: 7922
+
+
+id path : 5	
+Param:
+	a->	u->	t->	aa->	cc->	qq->	
+Nodes id:
+	7->	83->	67->	24->	5->	
+ExecTime:
+	197	289	37	247	282	
+
+MessagesSend: 7922
+
+
+id path : 6	
+Param:
+	a->	u->	t->	aa->	cc->	qq->	
+Nodes id:
+	7->	83->	73->	24->	5->	
+ExecTime:
+	197	289	322	247	282	
+
+MessagesSend: 7922
+
+
+id path : 7	
+Param:
+	a->	q->	e->	g->	cc->	qq->	
+Nodes id:
+	2->	3->	76->	33->	5->	
+ExecTime:
+	315	841	723	90	282	
+
+MessagesSend: 7922
+
+
+id path : 8	
+Param:
+	a->	u->	t->	aa->	cc->	qq->	
+Nodes id:
+	7->	83->	67->	62->	5->	
+ExecTime:
+	197	289	37	415	282	
+
+MessagesSend: 7922
+
+
+id path : 9	
+Param:
+	a->	u->	t->	aa->	cc->	qq->	
+Nodes id:
+	7->	83->	73->	62->	5->	
+ExecTime:
+	197	289	322	415	282	
+
+MessagesSend: 7922
+
+
+id path : 10	
+Param:
+	a->	q->	e->	h->	u->	t->	cc->	qq->	
+Nodes id:
+	2->	3->	38->	61->	83->	0->	5->	
+ExecTime:
+	315	841	422	771	289	224	282	
+
+MessagesSend: 7922
+
+
+id path : 11	
+Param:
+	a->	u->	i->	e->	g->	cc->	qq->	
+Nodes id:
+	7->	60->	17->	76->	33->	5->	
+ExecTime:
+	197	47	318	723	90	282	
+
+MessagesSend: 7922
+
+
+id path : 12	
+Param:
+	a->	u->	bb->	r->	aa->	cc->	qq->	
+Nodes id:
+	7->	13->	57->	63->	62->	5->	
+ExecTime:
+	197	911	340	170	415	282	
+
+MessagesSend: 7922
+
+
+__________________________________________________________________________________________
+QueryId :4
+Selected Path: 0
+Numero di path trovari: 38
+
+Param:
+	u->	r->	a->	
+Nodes id:
+	66->	52->	
+ExecTime:
+	399	220	
+
+Tempo di esecuzione totale: 619.0
+
+
+
+Lista dei path:
+
+
+id path : 0	
+Param:
+	u->	r->	a->	
+Nodes id:
+	66->	52->	
+ExecTime:
+	399	220	
+
+MessagesSend: 7922
+
+
+id path : 1	
+Param:
+	u->	t->	aa->	cc->	qq->	m->	bb->	r->	a->	
+Nodes id:
+	83->	67->	24->	5->	18->	10->	57->	52->	
+ExecTime:
+	289	37	247	282	197	751	340	220	
+
+MessagesSend: 7922
+
+
+id path : 2	
+Param:
+	u->	t->	aa->	r->	a->	
+Nodes id:
+	83->	67->	21->	52->	
+ExecTime:
+	289	37	379	220	
+
+MessagesSend: 7922
+
+
+id path : 3	
+Param:
+	u->	t->	bb->	r->	a->	
+Nodes id:
+	83->	99->	57->	52->	
+ExecTime:
+	289	157	340	220	
+
+MessagesSend: 7922
+
+
+id path : 4	
+Param:
+	u->	t->	aa->	cc->	r->	a->	
+Nodes id:
+	83->	73->	24->	92->	52->	
+ExecTime:
+	289	322	247	95	220	
+
+MessagesSend: 7922
+
+
+id path : 5	
+Param:
+	u->	t->	cc->	qq->	m->	bb->	r->	a->	
+Nodes id:
+	83->	0->	5->	18->	10->	57->	52->	
+ExecTime:
+	289	224	282	197	751	340	220	
+
+MessagesSend: 7922
+
+
+id path : 6	
+Param:
+	u->	l->	p->	n->	r->	a->	
+Nodes id:
+	44->	97->	70->	48->	12->	
+ExecTime:
+	754	217	601	34	489	
+
+MessagesSend: 7922
+
+
+id path : 7	
+Param:
+	u->	bb->	r->	a->	
+Nodes id:
+	13->	57->	52->	
+ExecTime:
+	911	340	220	
+
+MessagesSend: 7922
+
+
+id path : 8	
+Param:
+	u->	t->	aa->	r->	a->	
+Nodes id:
+	83->	73->	21->	12->	
+ExecTime:
+	289	322	379	489	
+
+MessagesSend: 7922
+
+
+id path : 9	
+Param:
+	u->	t->	cc->	r->	a->	
+Nodes id:
+	83->	0->	92->	12->	
+ExecTime:
+	289	224	95	489	
+
+MessagesSend: 7922
+
+
+id path : 10	
+Param:
+	u->	t->	aa->	cc->	r->	a->	
+Nodes id:
+	83->	67->	24->	92->	12->	
+ExecTime:
+	289	37	247	95	489	
+
+MessagesSend: 7922
+
+
+id path : 11	
+Param:
+	u->	l->	p->	n->	r->	a->	
+Nodes id:
+	44->	97->	70->	48->	52->	
+ExecTime:
+	754	217	601	34	220	
+
+MessagesSend: 7922
+
+
+id path : 12	
+Param:
+	u->	t->	cc->	e->	o->	qq->	m->	bb->	r->	a->	
+Nodes id:
+	83->	0->	36->	53->	15->	18->	10->	57->	52->	
+ExecTime:
+	289	224	681	102	527	197	751	340	220	
+
+MessagesSend: 7922
+
+
+id path : 13	
+Param:
+	u->	t->	cc->	r->	a->	
+Nodes id:
+	83->	0->	92->	52->	
+ExecTime:
+	289	224	95	220	
+
+MessagesSend: 7922
+
+
+id path : 14	
+Param:
+	u->	t->	aa->	cc->	r->	a->	
+Nodes id:
+	83->	67->	62->	92->	52->	
+ExecTime:
+	289	37	415	95	220	
+
+MessagesSend: 7922
+
+
+id path : 15	
+Param:
+	u->	t->	aa->	cc->	r->	a->	
+Nodes id:
+	83->	73->	62->	92->	52->	
+ExecTime:
+	289	322	415	95	220	
+
+MessagesSend: 7922
+
+
+id path : 16	
+Param:
+	u->	t->	aa->	cc->	r->	a->	
+Nodes id:
+	83->	67->	24->	92->	52->	
+ExecTime:
+	289	37	247	95	220	
+
+MessagesSend: 7922
+
+
+id path : 17	
+Param:
+	u->	l->	p->	c->	a->	
+Nodes id:
+	44->	97->	35->	14->	
+ExecTime:
+	754	217	297	875	
+
+MessagesSend: 7922
+
+
+id path : 18	
+Param:
+	u->	t->	l->	p->	c->	a->	
+Nodes id:
+	83->	84->	97->	35->	14->	
+ExecTime:
+	289	324	217	297	875	
+
+MessagesSend: 7922
+
+
+id path : 19	
+Param:
+	u->	t->	aa->	cc->	qq->	m->	bb->	r->	a->	
+Nodes id:
+	83->	73->	24->	5->	18->	10->	57->	52->	
+ExecTime:
+	289	322	247	282	197	751	340	220	
+
+MessagesSend: 7922
+
+
+id path : 20	
+Param:
+	u->	t->	aa->	r->	a->	
+Nodes id:
+	83->	73->	21->	52->	
+ExecTime:
+	289	322	379	220	
+
+MessagesSend: 7922
+
+
+id path : 21	
+Param:
+	u->	r->	a->	
+Nodes id:
+	66->	12->	
+ExecTime:
+	399	489	
+
+MessagesSend: 7922
+
+
+id path : 22	
+Param:
+	u->	t->	cc->	d->	z->	h->	n->	r->	a->	
+Nodes id:
+	83->	0->	94->	69->	29->	30->	48->	52->	
+ExecTime:
+	289	224	540	148	889	494	34	220	
+
+MessagesSend: 7922
+
+
+id path : 23	
+Param:
+	u->	t->	l->	p->	n->	r->	a->	
+Nodes id:
+	83->	84->	97->	70->	48->	52->	
+ExecTime:
+	289	324	217	601	34	220	
+
+MessagesSend: 7922
+
+
+id path : 24	
+Param:
+	u->	l->	p->	n->	r->	a->	
+Nodes id:
+	44->	97->	70->	11->	52->	
+ExecTime:
+	754	217	601	155	220	
+
+MessagesSend: 7922
+
+
+id path : 25	
+Param:
+	u->	t->	aa->	r->	a->	
+Nodes id:
+	83->	67->	21->	12->	
+ExecTime:
+	289	37	379	489	
+
+MessagesSend: 7922
+
+
+id path : 26	
+Param:
+	u->	t->	cc->	d->	z->	p->	n->	r->	a->	
+Nodes id:
+	83->	0->	94->	69->	26->	70->	48->	52->	
+ExecTime:
+	289	224	540	148	811	601	34	220	
+
+MessagesSend: 7922
+
+
+id path : 27	
+Param:
+	u->	t->	cc->	d->	z->	p->	c->	a->	
+Nodes id:
+	83->	0->	94->	69->	26->	35->	14->	
+ExecTime:
+	289	224	540	148	811	297	875	
+
+MessagesSend: 7922
+
+
+id path : 28	
+Param:
+	u->	t->	l->	p->	n->	r->	a->	
+Nodes id:
+	83->	84->	97->	70->	48->	12->	
+ExecTime:
+	289	324	217	601	34	489	
+
+MessagesSend: 7922
+
+
+id path : 29	
+Param:
+	u->	l->	p->	n->	v->	aa->	r->	a->	
+Nodes id:
+	44->	97->	70->	22->	75->	21->	52->	
+ExecTime:
+	754	217	601	35	347	379	220	
+
+MessagesSend: 7922
+
+
+id path : 30	
+Param:
+	u->	t->	cc->	qq->	v->	aa->	r->	a->	
+Nodes id:
+	83->	0->	5->	56->	75->	21->	52->	
+ExecTime:
+	289	224	282	328	347	379	220	
+
+MessagesSend: 7922
+
+
+id path : 31	
+Param:
+	u->	t->	l->	p->	n->	v->	aa->	r->	a->	
+Nodes id:
+	83->	84->	97->	70->	22->	75->	21->	52->	
+ExecTime:
+	289	324	217	601	35	347	379	220	
+
+MessagesSend: 7922
+
+
+id path : 32	
+Param:
+	u->	l->	p->	v->	aa->	r->	a->	
+Nodes id:
+	44->	97->	88->	75->	21->	52->	
+ExecTime:
+	754	217	911	347	379	220	
+
+MessagesSend: 7922
+
+
+id path : 33	
+Param:
+	u->	t->	cc->	d->	z->	p->	n->	v->	aa->	r->	a->	
+Nodes id:
+	83->	0->	94->	69->	26->	70->	22->	75->	21->	52->	
+ExecTime:
+	289	224	540	148	811	601	35	347	379	220	
+
+MessagesSend: 7922
+
+
+id path : 34	
+Param:
+	u->	t->	l->	p->	v->	aa->	r->	a->	
+Nodes id:
+	83->	84->	97->	88->	75->	21->	52->	
+ExecTime:
+	289	324	217	911	347	379	220	
+
+MessagesSend: 7922
+
+
+id path : 35	
+Param:
+	u->	t->	cc->	d->	z->	p->	v->	aa->	r->	a->	
+Nodes id:
+	83->	0->	94->	69->	26->	88->	75->	21->	52->	
+ExecTime:
+	289	224	540	148	811	911	347	379	220	
+
+MessagesSend: 7922
+
+
+id path : 36	
+Param:
+	u->	t->	cc->	d->	z->	p->	n->	r->	a->	
+Nodes id:
+	83->	0->	94->	69->	26->	70->	48->	12->	
+ExecTime:
+	289	224	540	148	811	601	34	489	
+
+MessagesSend: 7922
+
+
+id path : 37	
+Param:
+	u->	t->	aa->	cc->	r->	a->	
+Nodes id:
+	83->	73->	24->	92->	12->	
+ExecTime:
+	289	322	247	95	489	
+
+MessagesSend: 7922
+
+
+__________________________________________________________________________________________
+QueryId :2
+Selected Path: 2
+Numero di path trovari: 15
+
+Param:
+	m->	g->	cc->	
+Nodes id:
+	41->	33->	
+ExecTime:
+	414	90	
+
+Tempo di esecuzione totale: 504.0
+
+
+
+Lista dei path:
+
+
+id path : 0	
+Param:
+	m->	u->	t->	aa->	cc->	
+Nodes id:
+	37->	83->	67->	24->	
+ExecTime:
+	568	289	37	247	
+
+MessagesSend: 7922
+
+
+id path : 1	
+Param:
+	m->	bb->	r->	a->	u->	t->	aa->	cc->	
+Nodes id:
+	10->	57->	52->	64->	83->	67->	24->	
+ExecTime:
+	751	340	220	767	289	37	247	
+
+MessagesSend: 7922
+
+
+id path : 2	
+Param:
+	m->	g->	cc->	
+Nodes id:
+	41->	33->	
+ExecTime:
+	414	90	
+
+MessagesSend: 7922
+
+
+id path : 3	
+Param:
+	m->	bb->	r->	a->	u->	t->	cc->	
+Nodes id:
+	10->	57->	52->	7->	83->	0->	
+ExecTime:
+	751	340	220	197	289	224	
+
+MessagesSend: 7922
+
+
+id path : 4	
+Param:
+	m->	bb->	r->	a->	u->	t->	aa->	cc->	
+Nodes id:
+	10->	57->	52->	7->	83->	73->	24->	
+ExecTime:
+	751	340	220	197	289	322	247	
+
+MessagesSend: 7922
+
+
+id path : 5	
+Param:
+	m->	bb->	r->	a->	u->	t->	aa->	cc->	
+Nodes id:
+	10->	57->	52->	7->	83->	67->	24->	
+ExecTime:
+	751	340	220	197	289	37	247	
+
+MessagesSend: 7922
+
+
+id path : 6	
+Param:
+	m->	bb->	r->	a->	u->	i->	p->	n->	v->	aa->	cc->	
+Nodes id:
+	10->	57->	52->	7->	60->	34->	70->	22->	75->	24->	
+ExecTime:
+	751	340	220	197	47	767	601	35	347	247	
+
+MessagesSend: 7922
+
+
+id path : 7	
+Param:
+	m->	bb->	r->	a->	u->	i->	e->	g->	cc->	
+Nodes id:
+	10->	57->	52->	7->	60->	17->	76->	33->	
+ExecTime:
+	751	340	220	197	47	318	723	90	
+
+MessagesSend: 7922
+
+
+id path : 8	
+Param:
+	m->	bb->	r->	a->	u->	i->	p->	v->	aa->	cc->	
+Nodes id:
+	10->	57->	52->	7->	60->	34->	88->	75->	24->	
+ExecTime:
+	751	340	220	197	47	767	911	347	247	
+
+MessagesSend: 7922
+
+
+id path : 9	
+Param:
+	m->	u->	t->	cc->	
+Nodes id:
+	37->	83->	0->	
+ExecTime:
+	568	289	224	
+
+MessagesSend: 7922
+
+
+id path : 10	
+Param:
+	m->	bb->	r->	aa->	cc->	
+Nodes id:
+	10->	57->	63->	24->	
+ExecTime:
+	751	340	170	247	
+
+MessagesSend: 7922
+
+
+id path : 11	
+Param:
+	m->	bb->	r->	a->	u->	i->	p->	v->	aa->	cc->	
+Nodes id:
+	10->	57->	52->	7->	60->	34->	88->	75->	62->	
+ExecTime:
+	751	340	220	197	47	767	911	347	415	
+
+MessagesSend: 7922
+
+
+id path : 12	
+Param:
+	m->	bb->	r->	a->	u->	t->	aa->	cc->	
+Nodes id:
+	10->	57->	52->	7->	83->	67->	62->	
+ExecTime:
+	751	340	220	197	289	37	415	
+
+MessagesSend: 7922
+
+
+id path : 13	
+Param:
+	m->	bb->	r->	a->	u->	t->	aa->	cc->	
+Nodes id:
+	10->	57->	52->	7->	83->	73->	62->	
+ExecTime:
+	751	340	220	197	289	322	415	
+
+MessagesSend: 7922
+
+
+id path : 14	
+Param:
+	m->	bb->	r->	aa->	cc->	
+Nodes id:
+	10->	57->	63->	62->	
+ExecTime:
+	751	340	170	415	
+
+MessagesSend: 7922
+
+
+__________________________________________________________________________________________
+QueryId :5
+Selected Path: 1
+Numero di path trovari: 4
+
+Param:
+	h->	u->	t->	l->	
+Nodes id:
+	61->	83->	84->	
+ExecTime:
+	771	289	324	
+
+Tempo di esecuzione totale: 1384.0
+
+
+
+Lista dei path:
+
+
+id path : 0	
+Param:
+	h->	u->	l->	
+Nodes id:
+	61->	44->	
+ExecTime:
+	771	754	
+
+MessagesSend: 7922
+
+
+id path : 1	
+Param:
+	h->	u->	t->	l->	
+Nodes id:
+	61->	83->	84->	
+ExecTime:
+	771	289	324	
+
+MessagesSend: 7922
+
+
+id path : 2	
+Param:
+	h->	n->	r->	a->	u->	l->	
+Nodes id:
+	30->	48->	52->	64->	44->	
+ExecTime:
+	494	34	220	767	754	
+
+MessagesSend: 7922
+
+
+id path : 3	
+Param:
+	h->	n->	r->	a->	u->	l->	
+Nodes id:
+	30->	48->	52->	7->	44->	
+ExecTime:
+	494	34	220	197	754	
+
+MessagesSend: 7922
+
+
+__________________________________________________________________________________________
+QueryId :8
+Selected Path: 5
+Numero di path trovari: 16
+
+Param:
+	v->	o->	qq->	m->	bb->	
+Nodes id:
+	90->	15->	18->	10->	
+ExecTime:
+	84	527	197	751	
+
+Tempo di esecuzione totale: 1559.0
+
+
+
+Lista dei path:
+
+
+id path : 0	
+Param:
+	v->	o->	q->	e->	g->	cc->	qq->	m->	bb->	
+Nodes id:
+	90->	19->	3->	76->	33->	5->	18->	10->	
+ExecTime:
+	84	838	841	723	90	282	197	751	
+
+MessagesSend: 7922
+
+
+id path : 1	
+Param:
+	v->	aa->	cc->	qq->	m->	bb->	
+Nodes id:
+	75->	24->	5->	18->	10->	
+ExecTime:
+	347	247	282	197	751	
+
+MessagesSend: 7922
+
+
+id path : 2	
+Param:
+	v->	o->	q->	e->	d->	z->	h->	u->	bb->	
+Nodes id:
+	90->	19->	3->	82->	69->	29->	61->	13->	
+ExecTime:
+	84	838	841	704	148	889	771	911	
+
+MessagesSend: 7922
+
+
+id path : 3	
+Param:
+	v->	o->	q->	e->	d->	z->	h->	u->	t->	bb->	
+Nodes id:
+	90->	19->	3->	82->	69->	29->	61->	83->	99->	
+ExecTime:
+	84	838	841	704	148	889	771	289	157	
+
+MessagesSend: 7922
+
+
+id path : 4	
+Param:
+	v->	o->	q->	e->	d->	z->	h->	u->	t->	cc->	qq->	m->	bb->	
+Nodes id:
+	90->	19->	3->	82->	69->	29->	61->	83->	0->	5->	18->	10->	
+ExecTime:
+	84	838	841	704	148	889	771	289	224	282	197	751	
+
+MessagesSend: 7922
+
+
+id path : 5	
+Param:
+	v->	o->	qq->	m->	bb->	
+Nodes id:
+	90->	15->	18->	10->	
+ExecTime:
+	84	527	197	751	
+
+MessagesSend: 7922
+
+
+id path : 6	
+Param:
+	v->	o->	q->	e->	d->	z->	h->	u->	t->	aa->	cc->	qq->	m->	bb->	
+Nodes id:
+	90->	19->	3->	82->	69->	29->	61->	83->	67->	24->	5->	18->	10->	
+ExecTime:
+	84	838	841	704	148	889	771	289	37	247	282	197	751	
+
+MessagesSend: 7922
+
+
+id path : 7	
+Param:
+	v->	o->	q->	e->	d->	z->	h->	u->	t->	aa->	cc->	qq->	m->	bb->	
+Nodes id:
+	90->	19->	3->	82->	69->	29->	61->	83->	73->	24->	5->	18->	10->	
+ExecTime:
+	84	838	841	704	148	889	771	289	322	247	282	197	751	
+
+MessagesSend: 7922
+
+
+id path : 8	
+Param:
+	v->	o->	q->	e->	h->	u->	bb->	
+Nodes id:
+	90->	19->	3->	38->	61->	13->	
+ExecTime:
+	84	838	841	422	771	911	
+
+MessagesSend: 7922
+
+
+id path : 9	
+Param:
+	v->	o->	q->	e->	h->	u->	t->	bb->	
+Nodes id:
+	90->	19->	3->	38->	61->	83->	99->	
+ExecTime:
+	84	838	841	422	771	289	157	
+
+MessagesSend: 7922
+
+
+id path : 10	
+Param:
+	v->	o->	q->	e->	g->	cc->	qq->	m->	u->	t->	bb->	
+Nodes id:
+	90->	19->	3->	76->	33->	5->	18->	37->	83->	99->	
+ExecTime:
+	84	838	841	723	90	282	197	568	289	157	
+
+MessagesSend: 7922
+
+
+id path : 11	
+Param:
+	v->	o->	q->	e->	h->	u->	t->	cc->	qq->	m->	bb->	
+Nodes id:
+	90->	19->	3->	38->	61->	83->	0->	5->	18->	10->	
+ExecTime:
+	84	838	841	422	771	289	224	282	197	751	
+
+MessagesSend: 7922
+
+
+id path : 12	
+Param:
+	v->	o->	q->	e->	h->	u->	t->	aa->	cc->	qq->	m->	bb->	
+Nodes id:
+	90->	19->	3->	38->	61->	83->	67->	24->	5->	18->	10->	
+ExecTime:
+	84	838	841	422	771	289	37	247	282	197	751	
+
+MessagesSend: 7922
+
+
+id path : 13	
+Param:
+	v->	o->	n->	r->	bb->	
+Nodes id:
+	90->	25->	48->	55->	
+ExecTime:
+	84	851	34	656	
+
+MessagesSend: 7922
+
+
+id path : 14	
+Param:
+	v->	aa->	cc->	qq->	m->	bb->	
+Nodes id:
+	75->	62->	5->	18->	10->	
+ExecTime:
+	347	415	282	197	751	
+
+MessagesSend: 7922
+
+
+id path : 15	
+Param:
+	v->	aa->	cc->	qq->	m->	u->	t->	bb->	
+Nodes id:
+	75->	24->	5->	18->	37->	83->	99->	
+ExecTime:
+	347	247	282	197	568	289	157	
+
+MessagesSend: 7922
+
+
+__________________________________________________________________________________________
+QueryId :3
+Selected Path: 1
+Numero di path trovari: 4
+
+Param:
+	o->	q->	dd->	
+Nodes id:
+	19->	32->	
+ExecTime:
+	838	407	
+
+Tempo di esecuzione totale: 1245.0
+
+
+
+Lista dei path:
+
+
+id path : 0	
+Param:
+	o->	n->	dd->	
+Nodes id:
+	25->	91->	
+ExecTime:
+	851	875	
+
+MessagesSend: 7922
+
+
+id path : 1	
+Param:
+	o->	q->	dd->	
+Nodes id:
+	19->	32->	
+ExecTime:
+	838	407	
+
+MessagesSend: 7922
+
+
+id path : 2	
+Param:
+	o->	q->	e->	d->	z->	h->	u->	dd->	
+Nodes id:
+	19->	3->	82->	69->	29->	61->	81->	
+ExecTime:
+	838	841	704	148	889	771	846	
+
+MessagesSend: 7922
+
+
+id path : 3	
+Param:
+	o->	q->	e->	h->	u->	dd->	
+Nodes id:
+	19->	3->	38->	61->	81->	
+ExecTime:
+	838	841	422	771	846	
+
+MessagesSend: 7922
+
+
+__________________________________________________________________________________________
+QueryId :1
+Selected Path: 27
+Numero di path trovari: 30
+
+Param:
+	p->	n->	v->	o->	qq->	m->	
+Nodes id:
+	70->	22->	90->	15->	18->	
+ExecTime:
+	601	35	84	527	197	
+
+Tempo di esecuzione totale: 1444.0
+
+
+
+Lista dei path:
+
+
+id path : 0	
+Param:
+	p->	v->	o->	q->	e->	d->	z->	h->	u->	t->	cc->	qq->	m->	
+Nodes id:
+	88->	90->	19->	3->	82->	69->	29->	61->	83->	0->	5->	18->	
+ExecTime:
+	911	84	838	841	704	148	889	771	289	224	282	197	
+
+MessagesSend: 7922
+
+
+id path : 1	
+Param:
+	p->	v->	o->	qq->	m->	
+Nodes id:
+	88->	90->	15->	18->	
+ExecTime:
+	911	84	527	197	
+
+MessagesSend: 7922
+
+
+id path : 2	
+Param:
+	p->	c->	v->	o->	q->	e->	g->	cc->	qq->	m->	
+Nodes id:
+	35->	8->	90->	19->	3->	76->	33->	5->	18->	
+ExecTime:
+	297	483	84	838	841	723	90	282	197	
+
+MessagesSend: 7922
+
+
+id path : 3	
+Param:
+	p->	v->	o->	q->	e->	g->	cc->	qq->	m->	
+Nodes id:
+	88->	90->	19->	3->	76->	33->	5->	18->	
+ExecTime:
+	911	84	838	841	723	90	282	197	
+
+MessagesSend: 7922
+
+
+id path : 4	
+Param:
+	p->	v->	o->	q->	e->	h->	u->	t->	aa->	cc->	qq->	m->	
+Nodes id:
+	88->	90->	19->	3->	38->	61->	83->	67->	24->	5->	18->	
+ExecTime:
+	911	84	838	841	422	771	289	37	247	282	197	
+
+MessagesSend: 7922
+
+
+id path : 5	
+Param:
+	p->	v->	aa->	cc->	qq->	m->	
+Nodes id:
+	88->	75->	24->	5->	18->	
+ExecTime:
+	911	347	247	282	197	
+
+MessagesSend: 7922
+
+
+id path : 6	
+Param:
+	p->	n->	r->	aa->	cc->	qq->	m->	
+Nodes id:
+	70->	48->	63->	24->	5->	18->	
+ExecTime:
+	601	34	170	247	282	197	
+
+MessagesSend: 7922
+
+
+id path : 7	
+Param:
+	p->	v->	o->	q->	e->	d->	z->	h->	u->	t->	aa->	cc->	qq->	m->	
+Nodes id:
+	88->	90->	19->	3->	82->	69->	29->	61->	83->	67->	24->	5->	18->	
+ExecTime:
+	911	84	838	841	704	148	889	771	289	37	247	282	197	
+
+MessagesSend: 7922
+
+
+id path : 8	
+Param:
+	p->	v->	o->	q->	e->	d->	z->	h->	u->	t->	aa->	cc->	qq->	m->	
+Nodes id:
+	88->	90->	19->	3->	82->	69->	29->	61->	83->	73->	24->	5->	18->	
+ExecTime:
+	911	84	838	841	704	148	889	771	289	322	247	282	197	
+
+MessagesSend: 7922
+
+
+id path : 9	
+Param:
+	p->	v->	o->	q->	e->	h->	u->	t->	cc->	qq->	m->	
+Nodes id:
+	88->	90->	19->	3->	38->	61->	83->	0->	5->	18->	
+ExecTime:
+	911	84	838	841	422	771	289	224	282	197	
+
+MessagesSend: 7922
+
+
+id path : 10	
+Param:
+	p->	v->	aa->	cc->	qq->	m->	
+Nodes id:
+	88->	75->	62->	5->	18->	
+ExecTime:
+	911	347	415	282	197	
+
+MessagesSend: 7922
+
+
+id path : 11	
+Param:
+	p->	n->	h->	u->	t->	cc->	qq->	m->	
+Nodes id:
+	70->	93->	61->	83->	0->	5->	18->	
+ExecTime:
+	601	796	771	289	224	282	197	
+
+MessagesSend: 7922
+
+
+id path : 12	
+Param:
+	p->	n->	h->	e->	g->	cc->	qq->	m->	
+Nodes id:
+	70->	93->	79->	76->	33->	5->	18->	
+ExecTime:
+	601	796	80	723	90	282	197	
+
+MessagesSend: 7922
+
+
+id path : 13	
+Param:
+	p->	n->	r->	aa->	cc->	qq->	m->	
+Nodes id:
+	70->	11->	63->	24->	5->	18->	
+ExecTime:
+	601	155	170	247	282	197	
+
+MessagesSend: 7922
+
+
+id path : 14	
+Param:
+	p->	n->	h->	u->	t->	aa->	cc->	qq->	m->	
+Nodes id:
+	70->	93->	61->	83->	67->	24->	5->	18->	
+ExecTime:
+	601	796	771	289	37	247	282	197	
+
+MessagesSend: 7922
+
+
+id path : 15	
+Param:
+	p->	n->	h->	u->	t->	aa->	cc->	qq->	m->	
+Nodes id:
+	70->	93->	61->	83->	73->	24->	5->	18->	
+ExecTime:
+	601	796	771	289	322	247	282	197	
+
+MessagesSend: 7922
+
+
+id path : 16	
+Param:
+	p->	n->	r->	aa->	cc->	qq->	m->	
+Nodes id:
+	70->	11->	63->	62->	5->	18->	
+ExecTime:
+	601	155	170	415	282	197	
+
+MessagesSend: 7922
+
+
+id path : 17	
+Param:
+	p->	n->	r->	aa->	cc->	qq->	m->	
+Nodes id:
+	70->	48->	63->	62->	5->	18->	
+ExecTime:
+	601	34	170	415	282	197	
+
+MessagesSend: 7922
+
+
+id path : 18	
+Param:
+	p->	c->	a->	u->	t->	cc->	qq->	m->	
+Nodes id:
+	35->	14->	7->	83->	0->	5->	18->	
+ExecTime:
+	297	875	197	289	224	282	197	
+
+MessagesSend: 7922
+
+
+id path : 19	
+Param:
+	p->	c->	a->	u->	t->	aa->	cc->	qq->	m->	
+Nodes id:
+	35->	14->	7->	83->	73->	24->	5->	18->	
+ExecTime:
+	297	875	197	289	322	247	282	197	
+
+MessagesSend: 7922
+
+
+id path : 20	
+Param:
+	p->	n->	v->	o->	q->	e->	g->	cc->	qq->	m->	
+Nodes id:
+	70->	22->	90->	19->	3->	76->	33->	5->	18->	
+ExecTime:
+	601	35	84	838	841	723	90	282	197	
+
+MessagesSend: 7922
+
+
+id path : 21	
+Param:
+	p->	n->	v->	o->	q->	e->	d->	z->	h->	u->	t->	cc->	qq->	m->	
+Nodes id:
+	70->	22->	90->	19->	3->	82->	69->	29->	61->	83->	0->	5->	18->	
+ExecTime:
+	601	35	84	838	841	704	148	889	771	289	224	282	197	
+
+MessagesSend: 7922
+
+
+id path : 22	
+Param:
+	p->	n->	v->	aa->	cc->	qq->	m->	
+Nodes id:
+	70->	22->	75->	24->	5->	18->	
+ExecTime:
+	601	35	347	247	282	197	
+
+MessagesSend: 7922
+
+
+id path : 23	
+Param:
+	p->	v->	aa->	cc->	e->	o->	qq->	m->	
+Nodes id:
+	88->	75->	24->	36->	53->	15->	18->	
+ExecTime:
+	911	347	247	681	102	527	197	
+
+MessagesSend: 7922
+
+
+id path : 24	
+Param:
+	p->	n->	h->	e->	o->	qq->	m->	
+Nodes id:
+	70->	93->	79->	53->	15->	18->	
+ExecTime:
+	601	796	80	102	527	197	
+
+MessagesSend: 7922
+
+
+id path : 25	
+Param:
+	p->	n->	v->	aa->	cc->	qq->	m->	
+Nodes id:
+	70->	22->	75->	62->	5->	18->	
+ExecTime:
+	601	35	347	415	282	197	
+
+MessagesSend: 7922
+
+
+id path : 26	
+Param:
+	p->	n->	r->	aa->	v->	o->	qq->	m->	
+Nodes id:
+	70->	11->	63->	77->	90->	15->	18->	
+ExecTime:
+	601	155	170	159	84	527	197	
+
+MessagesSend: 7922
+
+
+id path : 27	
+Param:
+	p->	n->	v->	o->	qq->	m->	
+Nodes id:
+	70->	22->	90->	15->	18->	
+ExecTime:
+	601	35	84	527	197	
+
+MessagesSend: 7922
+
+
+id path : 28	
+Param:
+	p->	n->	r->	aa->	cc->	e->	o->	qq->	m->	
+Nodes id:
+	70->	11->	63->	62->	36->	53->	15->	18->	
+ExecTime:
+	601	155	170	415	681	102	527	197	
+
+MessagesSend: 7922
+
+
+id path : 29	
+Param:
+	p->	n->	v->	aa->	cc->	e->	o->	qq->	m->	
+Nodes id:
+	70->	22->	75->	62->	36->	53->	15->	18->	
+ExecTime:
+	601	35	347	415	681	102	527	197	
+
+MessagesSend: 7922
+
+
+__________________________________________________________________________________________
+QueryId :9
+Selected Path: 2
+Numero di path trovari: 53
+
+Param:
+	t->	aa->	v->	o->	
+Nodes id:
+	67->	77->	90->	
+ExecTime:
+	37	159	84	
+
+Tempo di esecuzione totale: 280.0
+
+
+
+Lista dei path:
+
+
+id path : 0	
+Param:
+	t->	l->	p->	v->	o->	
+Nodes id:
+	84->	97->	88->	90->	
+ExecTime:
+	324	217	911	84	
+
+MessagesSend: 7922
+
+
+id path : 1	
+Param:
+	t->	aa->	v->	o->	
+Nodes id:
+	73->	77->	90->	
+ExecTime:
+	322	159	84	
+
+MessagesSend: 7922
+
+
+id path : 2	
+Param:
+	t->	aa->	v->	o->	
+Nodes id:
+	67->	77->	90->	
+ExecTime:
+	37	159	84	
+
+MessagesSend: 7922
+
+
+id path : 3	
+Param:
+	t->	aa->	cc->	qq->	v->	o->	
+Nodes id:
+	67->	24->	5->	56->	90->	
+ExecTime:
+	37	247	282	328	84	
+
+MessagesSend: 7922
+
+
+id path : 4	
+Param:
+	t->	aa->	cc->	qq->	v->	o->	
+Nodes id:
+	73->	24->	5->	56->	90->	
+ExecTime:
+	322	247	282	328	84	
+
+MessagesSend: 7922
+
+
+id path : 5	
+Param:
+	t->	l->	p->	n->	v->	o->	
+Nodes id:
+	84->	97->	70->	22->	90->	
+ExecTime:
+	324	217	601	35	84	
+
+MessagesSend: 7922
+
+
+id path : 6	
+Param:
+	t->	u->	l->	e->	o->	
+Nodes id:
+	65->	44->	95->	53->	
+ExecTime:
+	944	754	718	102	
+
+MessagesSend: 7922
+
+
+id path : 7	
+Param:
+	t->	u->	l->	p->	v->	o->	
+Nodes id:
+	65->	44->	97->	88->	90->	
+ExecTime:
+	944	754	217	911	84	
+
+MessagesSend: 7922
+
+
+id path : 8	
+Param:
+	t->	cc->	qq->	v->	o->	
+Nodes id:
+	0->	5->	56->	90->	
+ExecTime:
+	224	282	328	84	
+
+MessagesSend: 7922
+
+
+id path : 9	
+Param:
+	t->	u->	i->	e->	o->	
+Nodes id:
+	65->	60->	17->	53->	
+ExecTime:
+	944	47	318	102	
+
+MessagesSend: 7922
+
+
+id path : 10	
+Param:
+	t->	u->	l->	p->	c->	v->	o->	
+Nodes id:
+	65->	44->	97->	35->	8->	90->	
+ExecTime:
+	944	754	217	297	483	84	
+
+MessagesSend: 7922
+
+
+id path : 11	
+Param:
+	t->	aa->	cc->	e->	o->	
+Nodes id:
+	67->	24->	36->	53->	
+ExecTime:
+	37	247	681	102	
+
+MessagesSend: 7922
+
+
+id path : 12	
+Param:
+	t->	aa->	cc->	e->	o->	
+Nodes id:
+	73->	24->	36->	53->	
+ExecTime:
+	322	247	681	102	
+
+MessagesSend: 7922
+
+
+id path : 13	
+Param:
+	t->	u->	i->	e->	g->	cc->	qq->	v->	o->	
+Nodes id:
+	65->	60->	17->	76->	33->	5->	56->	90->	
+ExecTime:
+	944	47	318	723	90	282	328	84	
+
+MessagesSend: 7922
+
+
+id path : 14	
+Param:
+	t->	ff->	e->	o->	
+Nodes id:
+	45->	78->	53->	
+ExecTime:
+	292	592	102	
+
+MessagesSend: 7922
+
+
+id path : 15	
+Param:
+	t->	u->	r->	e->	o->	
+Nodes id:
+	65->	66->	42->	53->	
+ExecTime:
+	944	399	509	102	
+
+MessagesSend: 7922
+
+
+id path : 16	
+Param:
+	t->	l->	p->	n->	r->	e->	o->	
+Nodes id:
+	84->	97->	70->	11->	42->	53->	
+ExecTime:
+	324	217	601	155	509	102	
+
+MessagesSend: 7922
+
+
+id path : 17	
+Param:
+	t->	aa->	cc->	r->	a->	i->	e->	o->	
+Nodes id:
+	73->	24->	92->	52->	9->	17->	53->	
+ExecTime:
+	322	247	95	220	887	318	102	
+
+MessagesSend: 7922
+
+
+id path : 18	
+Param:
+	t->	aa->	cc->	r->	a->	i->	e->	o->	
+Nodes id:
+	67->	24->	92->	52->	9->	17->	53->	
+ExecTime:
+	37	247	95	220	887	318	102	
+
+MessagesSend: 7922
+
+
+id path : 19	
+Param:
+	t->	cc->	r->	a->	i->	e->	o->	
+Nodes id:
+	0->	92->	52->	9->	17->	53->	
+ExecTime:
+	224	95	220	887	318	102	
+
+MessagesSend: 7922
+
+
+id path : 20	
+Param:
+	t->	l->	p->	n->	r->	a->	i->	e->	o->	
+Nodes id:
+	84->	97->	70->	11->	52->	9->	17->	53->	
+ExecTime:
+	324	217	601	155	220	887	318	102	
+
+MessagesSend: 7922
+
+
+id path : 21	
+Param:
+	t->	l->	p->	n->	r->	aa->	v->	o->	
+Nodes id:
+	84->	97->	70->	11->	63->	77->	90->	
+ExecTime:
+	324	217	601	155	170	159	84	
+
+MessagesSend: 7922
+
+
+id path : 22	
+Param:
+	t->	bb->	r->	aa->	cc->	qq->	v->	o->	
+Nodes id:
+	99->	57->	63->	24->	5->	56->	90->	
+ExecTime:
+	157	340	170	247	282	328	84	
+
+MessagesSend: 7922
+
+
+id path : 23	
+Param:
+	t->	u->	r->	aa->	cc->	qq->	v->	o->	
+Nodes id:
+	65->	66->	63->	24->	5->	56->	90->	
+ExecTime:
+	944	399	170	247	282	328	84	
+
+MessagesSend: 7922
+
+
+id path : 24	
+Param:
+	t->	u->	bb->	r->	aa->	cc->	qq->	v->	o->	
+Nodes id:
+	65->	13->	57->	63->	24->	5->	56->	90->	
+ExecTime:
+	944	911	340	170	247	282	328	84	
+
+MessagesSend: 7922
+
+
+id path : 25	
+Param:
+	t->	g->	cc->	qq->	v->	o->	
+Nodes id:
+	51->	33->	5->	56->	90->	
+ExecTime:
+	265	90	282	328	84	
+
+MessagesSend: 7922
+
+
+id path : 26	
+Param:
+	t->	l->	p->	n->	r->	aa->	cc->	qq->	v->	o->	
+Nodes id:
+	84->	97->	70->	11->	63->	24->	5->	56->	90->	
+ExecTime:
+	324	217	601	155	170	247	282	328	84	
+
+MessagesSend: 7922
+
+
+id path : 27	
+Param:
+	t->	g->	cc->	e->	o->	
+Nodes id:
+	51->	33->	36->	53->	
+ExecTime:
+	265	90	681	102	
+
+MessagesSend: 7922
+
+
+id path : 28	
+Param:
+	t->	l->	p->	n->	r->	aa->	cc->	qq->	v->	o->	
+Nodes id:
+	84->	97->	70->	11->	63->	62->	5->	56->	90->	
+ExecTime:
+	324	217	601	155	170	415	282	328	84	
+
+MessagesSend: 7922
+
+
+id path : 29	
+Param:
+	t->	bb->	r->	aa->	v->	o->	
+Nodes id:
+	99->	57->	63->	77->	90->	
+ExecTime:
+	157	340	170	159	84	
+
+MessagesSend: 7922
+
+
+id path : 30	
+Param:
+	t->	u->	bb->	r->	aa->	v->	o->	
+Nodes id:
+	65->	13->	57->	63->	77->	90->	
+ExecTime:
+	944	911	340	170	159	84	
+
+MessagesSend: 7922
+
+
+id path : 31	
+Param:
+	t->	bb->	r->	aa->	cc->	qq->	v->	o->	
+Nodes id:
+	99->	57->	63->	62->	5->	56->	90->	
+ExecTime:
+	157	340	170	415	282	328	84	
+
+MessagesSend: 7922
+
+
+id path : 32	
+Param:
+	t->	u->	bb->	r->	aa->	cc->	qq->	v->	o->	
+Nodes id:
+	65->	13->	57->	63->	62->	5->	56->	90->	
+ExecTime:
+	944	911	340	170	415	282	328	84	
+
+MessagesSend: 7922
+
+
+id path : 33	
+Param:
+	t->	l->	p->	n->	r->	aa->	cc->	e->	o->	
+Nodes id:
+	84->	97->	70->	11->	63->	62->	36->	53->	
+ExecTime:
+	324	217	601	155	170	415	681	102	
+
+MessagesSend: 7922
+
+
+id path : 34	
+Param:
+	t->	cc->	e->	o->	
+Nodes id:
+	0->	36->	53->	
+ExecTime:
+	224	681	102	
+
+MessagesSend: 7922
+
+
+id path : 35	
+Param:
+	t->	l->	e->	o->	
+Nodes id:
+	84->	95->	53->	
+ExecTime:
+	324	718	102	
+
+MessagesSend: 7922
+
+
+id path : 36	
+Param:
+	t->	cc->	qq->	o->	
+Nodes id:
+	0->	5->	74->	
+ExecTime:
+	224	282	313	
+
+MessagesSend: 7922
+
+
+id path : 37	
+Param:
+	t->	aa->	cc->	qq->	o->	
+Nodes id:
+	67->	24->	5->	74->	
+ExecTime:
+	37	247	282	313	
+
+MessagesSend: 7922
+
+
+id path : 38	
+Param:
+	t->	z->	p->	n->	v->	o->	
+Nodes id:
+	80->	26->	70->	22->	90->	
+ExecTime:
+	774	811	601	35	84	
+
+MessagesSend: 7922
+
+
+id path : 39	
+Param:
+	t->	u->	l->	p->	n->	v->	o->	
+Nodes id:
+	65->	44->	97->	70->	22->	90->	
+ExecTime:
+	944	754	217	601	35	84	
+
+MessagesSend: 7922
+
+
+id path : 40	
+Param:
+	t->	cc->	e->	h->	z->	p->	n->	v->	o->	
+Nodes id:
+	0->	36->	38->	28->	26->	70->	22->	90->	
+ExecTime:
+	224	681	422	477	811	601	35	84	
+
+MessagesSend: 7922
+
+
+id path : 41	
+Param:
+	t->	z->	p->	v->	o->	
+Nodes id:
+	80->	26->	88->	90->	
+ExecTime:
+	774	811	911	84	
+
+MessagesSend: 7922
+
+
+id path : 42	
+Param:
+	t->	cc->	e->	h->	z->	p->	v->	o->	
+Nodes id:
+	0->	36->	38->	28->	26->	88->	90->	
+ExecTime:
+	224	681	422	477	811	911	84	
+
+MessagesSend: 7922
+
+
+id path : 43	
+Param:
+	t->	l->	z->	p->	v->	o->	
+Nodes id:
+	84->	87->	26->	88->	90->	
+ExecTime:
+	324	429	811	911	84	
+
+MessagesSend: 7922
+
+
+id path : 44	
+Param:
+	t->	l->	p->	n->	r->	aa->	cc->	e->	o->	
+Nodes id:
+	84->	97->	70->	11->	63->	24->	36->	53->	
+ExecTime:
+	324	217	601	155	170	247	681	102	
+
+MessagesSend: 7922
+
+
+id path : 45	
+Param:
+	t->	l->	p->	c->	v->	o->	
+Nodes id:
+	84->	97->	35->	8->	90->	
+ExecTime:
+	324	217	297	483	84	
+
+MessagesSend: 7922
+
+
+id path : 46	
+Param:
+	t->	z->	p->	c->	v->	o->	
+Nodes id:
+	80->	26->	35->	8->	90->	
+ExecTime:
+	774	811	297	483	84	
+
+MessagesSend: 7922
+
+
+id path : 47	
+Param:
+	t->	l->	p->	n->	r->	aa->	v->	o->	
+Nodes id:
+	84->	97->	70->	48->	63->	77->	90->	
+ExecTime:
+	324	217	601	34	170	159	84	
+
+MessagesSend: 7922
+
+
+id path : 48	
+Param:
+	t->	z->	p->	n->	r->	aa->	v->	o->	
+Nodes id:
+	80->	26->	70->	11->	63->	77->	90->	
+ExecTime:
+	774	811	601	155	170	159	84	
+
+MessagesSend: 7922
+
+
+id path : 49	
+Param:
+	t->	u->	l->	p->	n->	r->	aa->	v->	o->	
+Nodes id:
+	65->	44->	97->	70->	11->	63->	77->	90->	
+ExecTime:
+	944	754	217	601	155	170	159	84	
+
+MessagesSend: 7922
+
+
+id path : 50	
+Param:
+	t->	cc->	d->	z->	p->	v->	o->	
+Nodes id:
+	0->	94->	69->	26->	88->	90->	
+ExecTime:
+	224	540	148	811	911	84	
+
+MessagesSend: 7922
+
+
+id path : 51	
+Param:
+	t->	aa->	cc->	d->	z->	p->	v->	o->	
+Nodes id:
+	67->	24->	94->	69->	26->	88->	90->	
+ExecTime:
+	37	247	540	148	811	911	84	
+
+MessagesSend: 7922
+
+
+id path : 52	
+Param:
+	t->	g->	cc->	d->	z->	p->	v->	o->	
+Nodes id:
+	51->	33->	94->	69->	26->	88->	90->	
+ExecTime:
+	265	90	540	148	811	911	84	
+
+MessagesSend: 7922
+
+
+__________________________________________________________________________________________

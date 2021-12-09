@@ -341,6 +341,20 @@ public class PathArray implements Path {
 		return true;
 
 	}
+	
+	public boolean isEquals(Path newPath) {
+		PathArray myPath = (PathArray) newPath;
+		if(nodesId.size() != myPath.nodesId.size()) {
+			return false;
+		}
+		for(int i = 0; i <nodesId.size() ;i++) {
+			if(nodesId.get(i) != myPath.nodesId.get(i)) {
+				return false;
+			}
+		}
+	
+		return true;
+	}
 
 	/**
 	 * 

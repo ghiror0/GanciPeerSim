@@ -205,7 +205,7 @@ public class MyProtocol implements CDProtocol {
 	
 
 
-	public void useCache(Query query) {
+	public void useCache(Query query) {  //TODO aggiungere solo il path migliore ??
 
 		for (Path cPath : cachePath) {
 			query.findSolutionPath(nodeInfo, cPath);
@@ -264,7 +264,7 @@ public class MyProtocol implements CDProtocol {
 
 	public void sendMessageBack(Message mex) {
 
-		mex.getQuery().clearUnused(); // Elimina i path giusti //TODO perche alla fine me ne ritrovo alcuni?
+		mex.getQuery().clearUnused(); // Elimina i path sbagliato //TODO perche alla fine me ne ritrovo alcuni?
 		MyProtocol pro = findNodeById(mex.getStarterNodeId());
 		sendMessage(mex,pro);
 
@@ -280,7 +280,7 @@ public class MyProtocol implements CDProtocol {
 			for (Message mex : messagesBuffer) {
 				query = mex.getQuery();
 
-				if (mex.getMessageId() == newMex.getMessageId() && newMex.getFind() == mex.getFind()) {
+				if (mex.getMessageId() == newMex.getMessageId() && newMex.getFind() == mex.getFind() && query.getId() == newQuery.getId()) {
 					query.meshPath(newQuery);
 					return; 
 					// TODO scarto troppo o troppo poco?? fai prova ma con questa

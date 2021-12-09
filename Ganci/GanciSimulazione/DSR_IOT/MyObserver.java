@@ -5,8 +5,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
-
-import DSR_IOT.path.Path;
 import DSR_IOT.query.Query;
 import peersim.config.Configuration;
 import peersim.core.CommonState;
@@ -55,10 +53,7 @@ public class MyObserver implements Control {
 // ------------------------------------------------------------------------
 
 	private final String name;
-	static ArrayList<ArrayList<Path>> pathList;
-	static ArrayList<ArrayList<Long>> messages;
-	static ArrayList<Long> queryId;
-	static ArrayList<Integer> selectedPath;
+	ArrayList<Query> query;
 
 	private final int pid;
 
@@ -88,78 +83,35 @@ public class MyObserver implements Control {
 		result_filename = DIR +  seed + "-C" + lastCycle + "-N" + netSize + "-"+ connect +
 				"-Q" + singleParamChar + numQuery + "-" + paramArrayChar  + cacheChar + liveOptChar + meshPathChar+ ".txt";
 		
+		query = new ArrayList<>();
 		
-		pathList = new ArrayList<>();
-		messages = new ArrayList<>();
-		queryId = new ArrayList<>();
-		selectedPath = new ArrayList<>();
 
 	}
 
-// Control interface method.
-	public boolean execute() {
-		for (int i = 0; i < Network.size(); i++) {
-
-			MyProtocol protocol = (MyProtocol) Network.get(i).getProtocol(pid);
-			if(!protocol.find /*&& CommonState.getTime() != lastCycle - 1 */) continue;
-			for (Query query: protocol.concludedQuery) {		//analizzo i messaggi conclusi
-				
-
-				query.clearUnused(); //TODO da rimuovere
-				for (Path path : query.getPaths()) {				//Per ogni path presente, vedo se aggiungerlo alla lista dei path soluzione
-					addPath(query.getId(), MyProtocol.sendMessage, path);
-					addSelected(query.getId(), query.getSelectedPath());
-				}
-
-				
-			}
-		}
+public boolean execute() {
 		
-		if (CommonState.getTime() == lastCycle - 1) {  //Se è l'ultimo ciclo
-
+		if (CommonState.getTime() == lastCycle - 1) {
 			
-			printResult();
-			writeResult();
-		}
+			for (int i = 0; i < Network.size(); i++) {
 
-		return false; // true fa terminare
-	}
+				MyProtocol protocol = (MyProtocol) Network.get(i).getProtocol(pid);
 
+				
+				for (Query query : protocol.concludedQuery) { 			// analizzo i messaggi conclusi
 
+					
+					query.clearUnused(); 							 	//TODO da rimuovere
+					query.setSelectedPath(query.selectBestPath());		//TODO da rimuovere
+					this.query.add(query);
 
-	public void addSelected(long query, int selected) {
-			selectedPath.add(queryId.indexOf(query), selected);
-	}
-
-	public void printFind(int query, long messages, Path path) {
-		System.out.println("Id query: " + query + "\tMessaggi inviati: " + messages);
-		System.out.println("time: " + CommonState.getTime()); // PRINTA IL NUMEOR DEL CICLO
-		path.printPath();
-		System.out.println("\n");
-	}
-
-	public void addPath(long query, long messagesNum, Path newPath) {
-		int index;
-
-		if (!queryId.contains(query)) {
-			queryId.add(query);
-			pathList.add(new ArrayList<>());
-			messages.add(new ArrayList<>());
-			index = queryId.size() - 1;
-		} else {
-			index = queryId.indexOf(query);
-
-			for (Path path : pathList.get(index)) {
-
-				if (path.isRedundant(newPath)) { // Se il path è ridondante
-					return;
 				}
-
 			}
-		}
 
-		messages.get(index).add(messagesNum);
-		pathList.get(index).add(newPath.getDuplicatePath());
+			query = orderQuery();
+			writeResult();
+
+		}
+		return false; // true fa terminare
 	}
 
 	public void printResult() {
@@ -168,21 +120,29 @@ public class MyObserver implements Control {
 	}
 	
 	public void printResult(PrintStream ps) {
+		Query myQuery;
 		ps.println("Risultati Simulazione:\n\n");
-		for (int j = 0; j < queryId.size(); j++) {
-			ps.println("QueryId :" + queryId.get(j));
-			ps.println("Selected Path: " + selectedPath.get(j));
-			ps.println("Lista dei path:\n\n");
-			
-			for (int i = 0; i < pathList.get(j).size(); i++) {
-				ps.print("id path : " + i + "\t");
-				pathList.get(j).get(i).printPath(ps);
-				ps.println("MessagesSend: " + messages.get(j).get(i));
-				ps.println("\n");
-			}
+		for (int j = 0; j < query.size(); j++) {
+			myQuery = query.get(j);
+			ps.println(myQuery.getResultInfo());
 			ps.println("__________________________________________________________________________________________");
 		}
 
+	}
+
+	public ArrayList<Query> orderQuery() {
+		ArrayList<Query> newList = new ArrayList<>();
+		Query myQuery;
+		for(int i = 0; i < query.size();i++) {
+			for(int j = 0; j < query.size();j++) {
+				myQuery = query.get(j);
+				if(myQuery.getId()==i) {
+					newList.add(myQuery);
+				}
+			}
+		}
+		query.clear();
+		return newList;
 	}
 
 	private void writeResult() {
@@ -192,7 +152,7 @@ public class MyObserver implements Control {
 			PrintStream pstr = new PrintStream(fos);
 
 			writeSimulationDettails(pstr);
-
+			
 			printResult(pstr);
 
 			fos.close();
@@ -200,7 +160,7 @@ public class MyObserver implements Control {
 			throw new RuntimeException(e);
 		}
 	}
-
+	
 	private void writeSimulationDettails(PrintStream pstr) {
 
 		pstr.println("Dettagli simulazione:\nSeed: " + seed + "\nNumero di cicli: " + lastCycle + "\nNumero Nodi: "+ netSize);
@@ -237,7 +197,10 @@ public class MyObserver implements Control {
 		
 		pstr.println(MyNodeInitializer.queryInfo);
 		
-		pstr.println("\n\n\n\n");
+		pstr.println("\n\n\n\n");	
+		
+		pstr.println("Messaggi totali: " + MyProtocol.sendMessage + "\n\n\n\n");
+		
 	}
 	
 }

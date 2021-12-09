@@ -193,6 +193,13 @@ public class QuerySingle implements Query {
 	public void printInfo() {
 		System.out.println("Query ID: " + id + "\tInput: " + input + "\tOutput: " + output + "\n\n");
 	}
+	
+	public String getResultInfo() {
+		if(selectedPath >=0 ) {
+			return "Query ID: " + id +  "\nNumero path: " + pathList.size() +  "\nSelectedPath: " + selectedPath + "\nTime: " + pathList.get(selectedPath).getTotalExecTime();
+		}
+		return  "Query ID: " + id +  "\nNumero path: " + pathList.size() +  "\nSelectedPath: NONE";
+	}
 
 	public void printPathsInfo() {
 		for (Path path : pathList) {

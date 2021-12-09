@@ -32,6 +32,7 @@ public Path getDuplicatePath();
 public boolean isRedundant(Path newPath);
 public Path analyzePath(NodeInfo node, boolean LiveOptimization);
 public boolean checkFind(Query query);
+public boolean isEquals(Path path);
 
 
 /////////////////////////////////////////////////////////PRINT//////////////////////////////////////////////////////////////////////

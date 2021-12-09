@@ -12,9 +12,6 @@ public interface Query {
 	public void setSelectedPath(int selected);
 	public int getSelectedPath();
 
-
-	
-
 	public void clearUnused();
 	public int selectBestPath() ;
 	public boolean checkFind();
@@ -22,6 +19,7 @@ public interface Query {
 	public String getInfo();
 	public void printInfo();
 	public void printPathsInfo();
+	public String getResultInfo();
 	
 	
 	public List<Path> getPaths();

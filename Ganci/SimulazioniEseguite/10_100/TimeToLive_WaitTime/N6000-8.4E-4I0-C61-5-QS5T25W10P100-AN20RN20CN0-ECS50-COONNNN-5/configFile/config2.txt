@@ -1,0 +1,69 @@
+random.seed 3599066631502933567
+
+simulation.cycles 61
+
+control.shf Shuffle
+
+network.size 6000
+
+ 
+protocol.lnk IdleProtocol
+
+protocol.NetworkProtocol NetworkProtocol
+
+
+#________________________________Network
+init.0 InitNetwork
+init.0.protocol NetworkProtocol
+
+init.1 MyWireTopology
+init.1.protocol lnk
+init.1.coord_protocol NetworkProtocol
+init.1.connectivity 0.000840000000
+init.1.inactiveNode 0
+
+#________________________________MyProtocol
+protocol.MyProtocol MyProtocol
+protocol.MyProtocol.linkable lnk
+
+
+protocol.MyProtocol.verbose false	
+protocol.MyProtocol.cache true		
+protocol.MyProtocol.liveOpt true		
+protocol.MyProtocol.readOnlyOneTime true				
+protocol.MyProtocol.maxCacheSize 50						
+protocol.MyProtocol.timeToLive 25						
+protocol.MyProtocol.queryToAdd 5						
+protocol.MyProtocol.addCycle 5							
+protocol.MyProtocol.selectMode executionTime			
+protocol.MyProtocol.maxWait 10	
+
+
+
+protocol.MyProtocol.mergePath false						
+protocol.MyProtocol.sendToSender false					
+protocol.MyProtocol.addSinglePathCache false			
+protocol.MyProtocol.maxReturnedCachePath false			
+protocol.MyProtocol.maxCachePath 5						
+
+#________________________________MyNodeInitializer
+init.2 MyNodeInitializer
+init.2.protocol MyProtocol
+init.2.paramNum 100   							
+init.2.singleParam true
+
+control.dnet DynamicNetwork
+control.dnet.add 20
+
+control.dnet.init.0 MyNodeInitializer
+control.dnet.init.0.protocol MyProtocol
+control.dnet.init.0.paramNum 0 
+control.dnet.init.0.singleParam true
+control.dnet.init.0.initLink true
+#________________________________MyObserver
+control.avgo MyObserver
+control.avgo.protocol MyProtocol
+control.avgo.addNodeNum 0
+control.avgo.removeNodeNum 20
+control.avgo.changeNodeNum 0
+

@@ -1,8 +1,8 @@
 -Eseguire il file 'startSimulation'
-	-->farà partire la simulazione con il file di configurazione 'config' all'interno della cartella 'GanciSimulazione/config'
-		-->Il file eseguirà il comando di make per la creazione delle classi java, ed avvierà la simulazione utilizzando la configurazione predefinita. Infine eseguirà il 'make clean' per eliminare le classi 	
+	-->Tale comando fara eseguire tutte le simulazioni delle configurazioni presenti nella cartella "simulationDir". 
+	-->Assicurarsi che la cartella "data" di ogni configurazione sia vuota
+	-->Alla fine delle simulazioni, i risultati verranno scritti nella cartella "simulationResult"
 	
-	
-	
+-Per la creazione di nuove configurazioni, utilizzare la classe MakeConfigFile	
 	
 	

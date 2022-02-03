@@ -1,0 +1,79 @@
+#File di configurazione di prova, usato per singole simulazioni
+
+
+random.seed 9128447880580485760
+	
+simulation.cycles 61		#Durata della simulazione in numero di cicli
+
+control.shf Shuffle  		#cambia l'ordine con cui i nodi vengono considerati ad ogni ciclo della simulazione
+							#viene modificato il valore index dei nodi
+
+network.size 6000   		
+
+ 
+protocol.lnk IdleProtocol
+
+protocol.NetworkProtocol NetworkProtocol
+
+
+#________________________________Network
+init.0 InitNetwork
+init.0.protocol NetworkProtocol
+
+init.1 MyWireTopology
+init.1.protocol lnk
+init.1.coord_protocol NetworkProtocol
+init.1.connectivity 0.00167				#Parametro di connessione dei nodi, maggiore il valore --> maggiore il numero di vicini per nodo
+init.1.inactiveNode 0
+
+#________________________________MyProtocol
+protocol.MyProtocol MyProtocol
+protocol.MyProtocol.linkable lnk
+
+
+protocol.MyProtocol.verbose false	
+protocol.MyProtocol.cache true							#Abilita meccanismo di cache per i path
+protocol.MyProtocol.liveOpt true						#Abilita meccanismo di ottimizzazione del path durante la ricerca
+protocol.MyProtocol.readOnlyOneTime true				#Abilita meccanismo che scarta i messaggi con lo stesso id di messaggi già analizzati
+protocol.MyProtocol.maxCacheSize 50						#Numero massimo di path mantenuti in cache
+protocol.MyProtocol.timeToLive 50						#Numero di cycli massimi di vita di un messaggio
+protocol.MyProtocol.queryToAdd 5						#Numero di query aggiunte periodicamente
+protocol.MyProtocol.addCycle 5							#Numero di cicli di attesa prima di generare nuove query
+protocol.MyProtocol.selectMode executionTime			#Valore QoS da ottimizzare: executionTime, cost, avaiability, throughput
+														#Attenzione: il meccanismo di findBest e il calcolo dello scarto medio avviene solo su executionTime
+protocol.MyProtocol.maxWait 10							#Tempo di attesa prima di selezionare il path migliore
+
+
+
+protocol.MyProtocol.mergePath false						#Abilita meccanismo di merge dei messaggi simili
+protocol.MyProtocol.sendToSender false					#Abilita meccanismo di invio al mittente del messaggio
+protocol.MyProtocol.addSinglePathCache false			#Abilita meccanismo che inserisce solo il path migliore in cache
+protocol.MyProtocol.maxReturnedCachePath false			#Abilita meccanismo che ritorna un numero max di path cache durante la ricerca
+protocol.MyProtocol.maxCachePath 5						#Numero massimo di path cache ritornati, in caso sia attivo il meccanismo di filtraggio dei path cache
+
+#________________________________MyNodeInitializer
+init.2 MyNodeInitializer
+init.2.protocol MyProtocol
+init.2.paramNum 500   								#Numero di tipi di dati nel sistema
+init.2.singleParam true								#True: Caso singolo input/output  False: caso multi input/output
+
+control.dnet DynamicNetwork							#Nodi aggiunti ad ogni ciclo
+control.dnet.add 20
+
+control.dnet.init.0 MyNodeInitializer				#Inizializzatore dei nuovi nodi aggiunti
+control.dnet.init.0.protocol MyProtocol
+control.dnet.init.0.paramNum 0 
+control.dnet.init.0.singleParam true
+control.dnet.init.0.initLink true
+
+
+
+#________________________________MyObserver
+control.avgo MyObserver
+control.avgo.protocol MyProtocol
+control.avgo.addNodeNum 0				#Old
+control.avgo.removeNodeNum 20			#Nodi da rimuovere ad ogni ciclo
+control.avgo.changeNodeNum 0			#Non implementato
+
+
+
